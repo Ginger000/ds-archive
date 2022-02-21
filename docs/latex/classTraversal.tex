@@ -1,0 +1,312 @@
+\hypertarget{classTraversal}{}\doxysection{Traversal Class Reference}
+\label{classTraversal}\index{Traversal@{Traversal}}
+
+
+{\ttfamily \#include $<$Traversal.\+h$>$}
+
+Inheritance diagram for Traversal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTraversal}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} \mbox{\hyperlink{classTraversal_a3c277987c24fd0cf9711e317b5790775}{begin}} ()=0
+\item 
+virtual \mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} \mbox{\hyperlink{classTraversal_a7d6407bd9c09331e63b287ed7eeb40ec}{end}} ()=0
+\item 
+virtual string \mbox{\hyperlink{classTraversal_a5508e0a9c6c6738c0d114ba217f0e31f}{peek}} ()=0
+\item 
+virtual string \mbox{\hyperlink{classTraversal_ac884ea5fcd4b31d6e35c65687d0989c2}{pop}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classTraversal_a23e9856151b003fbe2b6b90f416d840d}{add}} (const string)=0
+\item 
+virtual bool \mbox{\hyperlink{classTraversal_a2f7909e0371b61a9858061107cf19e56}{empty}} ()=0
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classTraversal_adfea7b74a799f169994e2b8ef0913d7b}{get\+Children}} (const string key)
+\item 
+\mbox{\hyperlink{classTraversal_ab35ed5482ece0765c7150ef1e6b5ba06}{Traversal}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$\&graph, string start)
+\item 
+string \mbox{\hyperlink{classTraversal_a031fde90b6cca9e73e39e02e4aa5ecb6}{get\+First\+Remaining}} ()
+\item 
+bool \mbox{\hyperlink{classTraversal_aab0ee38258e164ee664aa29346de70b3}{has\+Remaining}} ()
+\item 
+void \mbox{\hyperlink{classTraversal_a2ddd63e21f541e964ca30cec2b42df4e}{remove\+Remaining}} (string)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTraversal_a62ec7cf72b971283ed40207ac9da8f64}\label{classTraversal_a62ec7cf72b971283ed40207ac9da8f64}} 
+virtual void {\bfseries push} (string)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTraversal_a70a4dba83d749f55a033206f35c03073}{visit}} (string node)
+\item 
+bool \mbox{\hyperlink{classTraversal_a792d841525fb629da799f7ddf84c0d91}{has\+Visted}} (string node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTraversal_a3fbc5def5a48edaba8843d9a1e27ca38}\label{classTraversal_a3fbc5def5a48edaba8843d9a1e27ca38}} 
+\mbox{\hyperlink{classGraph}{Graph}} $\ast$ {\bfseries graph}
+\item 
+\mbox{\Hypertarget{classTraversal_a4a7b4e7ab03a41d47dd7cc46eb49b41c}\label{classTraversal_a4a7b4e7ab03a41d47dd7cc46eb49b41c}} 
+const string {\bfseries start\+Link}
+\item 
+\mbox{\Hypertarget{classTraversal_abace1caf3211193d93a60ba3a92d41fd}\label{classTraversal_abace1caf3211193d93a60ba3a92d41fd}} 
+std\+::unordered\+\_\+set$<$ string $>$ {\bfseries visited}
+\item 
+\mbox{\Hypertarget{classTraversal_a0fecc20b6c4c787ec77e358924997290}\label{classTraversal_a0fecc20b6c4c787ec77e358924997290}} 
+std\+::unordered\+\_\+set$<$ string $>$ {\bfseries remaining}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A base class for traversal algorithms on wikipedia graphs.
+
+\mbox{\hyperlink{classBFS}{BFS}}, \mbox{\hyperlink{classDFS}{DFS}} will inherit from this class
+
+A derived class provides a traversal by returning instances of \mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal\+::\+Iterator}}. 
+
+Definition at line 18 of file Traversal.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTraversal_ab35ed5482ece0765c7150ef1e6b5ba06}\label{classTraversal_ab35ed5482ece0765c7150ef1e6b5ba06}} 
+\index{Traversal@{Traversal}!Traversal@{Traversal}}
+\index{Traversal@{Traversal}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{Traversal()}{Traversal()}}
+{\footnotesize\ttfamily Traversal\+::\+Traversal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$\&}]{graph,  }\item[{string}]{start }\end{DoxyParamCaption})}
+
+Default constructor for \mbox{\hyperlink{classTraversal}{Traversal}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & the graph to traverse through \\
+\hline
+{\em start} & the starting node of the traversal ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 9 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9                                                 : graph(graph), startLink(start) \{}
+\DoxyCodeLine{10   \textcolor{comment}{// Add all current nodes in graph to untraversed list}}
+\DoxyCodeLine{11   remaining.reserve(graph-\/>\mbox{\hyperlink{classGraph_a7d016a176241e35cfe0d15d3d9f05eae}{size}}());}
+\DoxyCodeLine{12   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&i : graph-\/>\mbox{\hyperlink{classGraph_a735919f77857f362d0d5170b6ca5561d}{getGraph}}()) \{}
+\DoxyCodeLine{13     remaining.insert(i.first);}
+\DoxyCodeLine{14   \}}
+\DoxyCodeLine{15 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTraversal_a23e9856151b003fbe2b6b90f416d840d}\label{classTraversal_a23e9856151b003fbe2b6b90f416d840d}} 
+\index{Traversal@{Traversal}!add@{add}}
+\index{add@{add}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily virtual void Traversal\+::add (\begin{DoxyParamCaption}\item[{const}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Add new node to the traversal Virtual function. Derived class need to implement this 
+
+Implemented in \mbox{\hyperlink{classBFS_a41f2ae48bb063841308a5e5d9e4f2f34}{BFS}}, and \mbox{\hyperlink{classDFS_acee07d6e6113198d225f27acd671b7f7}{DFS}}.
+
+\mbox{\Hypertarget{classTraversal_a3c277987c24fd0cf9711e317b5790775}\label{classTraversal_a3c277987c24fd0cf9711e317b5790775}} 
+\index{Traversal@{Traversal}!begin@{begin}}
+\index{begin@{begin}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} Traversal\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+The begining of an iterator Virtual function. Derived class need to implement this 
+
+Implemented in \mbox{\hyperlink{classBFS_aa23cf6244cc2ce8876cc91364edb1b63}{BFS}}, and \mbox{\hyperlink{classDFS_a6174caa48eaf0b8e8f21bf81f18b815c}{DFS}}.
+
+\mbox{\Hypertarget{classTraversal_a2f7909e0371b61a9858061107cf19e56}\label{classTraversal_a2f7909e0371b61a9858061107cf19e56}} 
+\index{Traversal@{Traversal}!empty@{empty}}
+\index{empty@{empty}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily virtual bool Traversal\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+To see if the traversal has no nodes left Virtual function. Derived class need to implement this 
+
+Implemented in \mbox{\hyperlink{classBFS_ac0e2ba56eb3cf5cfc6b9c23c03317302}{BFS}}, and \mbox{\hyperlink{classDFS_a041d7065d32b94d73ebb8f6d945a2d94}{DFS}}.
+
+\mbox{\Hypertarget{classTraversal_a7d6407bd9c09331e63b287ed7eeb40ec}\label{classTraversal_a7d6407bd9c09331e63b287ed7eeb40ec}} 
+\index{Traversal@{Traversal}!end@{end}}
+\index{end@{end}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} Traversal\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+The end of an iterator Virtual function. Derived class need to implement this 
+
+Implemented in \mbox{\hyperlink{classBFS_aa11dc1c62b53adc123afcba6084b3d43}{BFS}}, and \mbox{\hyperlink{classDFS_a9c8984634898b9ce76f20a7125398ee2}{DFS}}.
+
+\mbox{\Hypertarget{classTraversal_adfea7b74a799f169994e2b8ef0913d7b}\label{classTraversal_adfea7b74a799f169994e2b8ef0913d7b}} 
+\index{Traversal@{Traversal}!getChildren@{getChildren}}
+\index{getChildren@{getChildren}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{getChildren()}{getChildren()}}
+{\footnotesize\ttfamily const std\+::vector$<$ string $>$ Traversal\+::get\+Children (\begin{DoxyParamCaption}\item[{const string}]{key }\end{DoxyParamCaption})}
+
+Returns all the avaliable children of the key from the pass in \mbox{\hyperlink{classGraph}{Graph}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the node key to get the children from \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40                                                                \{}
+\DoxyCodeLine{41   \textcolor{keywordflow}{return} graph-\/>\mbox{\hyperlink{classGraph_ac8507d9150c2eca50728a892150f1717}{getChildren}}(key);}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTraversal_a031fde90b6cca9e73e39e02e4aa5ecb6}\label{classTraversal_a031fde90b6cca9e73e39e02e4aa5ecb6}} 
+\index{Traversal@{Traversal}!getFirstRemaining@{getFirstRemaining}}
+\index{getFirstRemaining@{getFirstRemaining}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{getFirstRemaining()}{getFirstRemaining()}}
+{\footnotesize\ttfamily string Traversal\+::get\+First\+Remaining (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the first un traversed node 
+
+Definition at line 165 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{165                                     \{}
+\DoxyCodeLine{166   \textcolor{keywordflow}{return} *remaining.begin();}
+\DoxyCodeLine{167 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTraversal_aab0ee38258e164ee664aa29346de70b3}\label{classTraversal_aab0ee38258e164ee664aa29346de70b3}} 
+\index{Traversal@{Traversal}!hasRemaining@{hasRemaining}}
+\index{hasRemaining@{hasRemaining}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{hasRemaining()}{hasRemaining()}}
+{\footnotesize\ttfamily bool Traversal\+::has\+Remaining (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+If this is empty then all the nodes have been traversed 
+
+Definition at line 172 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{172                              \{}
+\DoxyCodeLine{173   \textcolor{keywordflow}{return} !remaining.empty();}
+\DoxyCodeLine{174 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTraversal_a792d841525fb629da799f7ddf84c0d91}\label{classTraversal_a792d841525fb629da799f7ddf84c0d91}} 
+\index{Traversal@{Traversal}!hasVisted@{hasVisted}}
+\index{hasVisted@{hasVisted}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{hasVisted()}{hasVisted()}}
+{\footnotesize\ttfamily bool Traversal\+::has\+Visted (\begin{DoxyParamCaption}\item[{string}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Checks if the node has been visited already
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & the node to check if it has been visited \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 31 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                                      \{}
+\DoxyCodeLine{32   \textcolor{keywordflow}{return} visited.find(node) != visited.end();}
+\DoxyCodeLine{33 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTraversal_a5508e0a9c6c6738c0d114ba217f0e31f}\label{classTraversal_a5508e0a9c6c6738c0d114ba217f0e31f}} 
+\index{Traversal@{Traversal}!peek@{peek}}
+\index{peek@{peek}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily virtual string Traversal\+::peek (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Return but not remove the next node of the traversal Virtual function. Derived class need to implement this 
+
+Implemented in \mbox{\hyperlink{classBFS_a96c9a746140026f979eeea5416800cef}{BFS}}, and \mbox{\hyperlink{classDFS_a7475b36e8a6ac731aecda8dc8dda9b01}{DFS}}.
+
+\mbox{\Hypertarget{classTraversal_ac884ea5fcd4b31d6e35c65687d0989c2}\label{classTraversal_ac884ea5fcd4b31d6e35c65687d0989c2}} 
+\index{Traversal@{Traversal}!pop@{pop}}
+\index{pop@{pop}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily virtual string Traversal\+::pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Remove and return the next node of the traversal Virtual function. Derived class need to implement this 
+
+Implemented in \mbox{\hyperlink{classBFS_a905978bfad82a3d48ed9e6d4d6c490e4}{BFS}}, and \mbox{\hyperlink{classDFS_a1c7df3735962407daeafc9e0a237d871}{DFS}}.
+
+\mbox{\Hypertarget{classTraversal_a2ddd63e21f541e964ca30cec2b42df4e}\label{classTraversal_a2ddd63e21f541e964ca30cec2b42df4e}} 
+\index{Traversal@{Traversal}!removeRemaining@{removeRemaining}}
+\index{removeRemaining@{removeRemaining}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{removeRemaining()}{removeRemaining()}}
+{\footnotesize\ttfamily void Traversal\+::remove\+Remaining (\begin{DoxyParamCaption}\item[{string}]{key }\end{DoxyParamCaption})}
+
+Remove this from the untravered nodes 
+\begin{DoxyParams}{Parameters}
+{\em key} & the node to remove \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 180 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{180                                           \{}
+\DoxyCodeLine{181   remaining.erase(key);}
+\DoxyCodeLine{182 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTraversal_a70a4dba83d749f55a033206f35c03073}\label{classTraversal_a70a4dba83d749f55a033206f35c03073}} 
+\index{Traversal@{Traversal}!visit@{visit}}
+\index{visit@{visit}!Traversal@{Traversal}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}}
+{\footnotesize\ttfamily void Traversal\+::visit (\begin{DoxyParamCaption}\item[{string}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Flags the node to have been visited
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & the node to set as visited \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 22 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                                  \{}
+\DoxyCodeLine{23   visited.insert(node);}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+wiki\+\_\+graph/Traversal.\+h\item 
+wiki\+\_\+graph/Traversal.\+cpp\end{DoxyCompactItemize}

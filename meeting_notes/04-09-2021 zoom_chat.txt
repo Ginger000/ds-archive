@@ -1,0 +1,10 @@
+20:21:27	 From  Bingyan Liu : https://etda.libraries.psu.edu/files/final_submissions/10828#:~:text=The%20Course%20Scheduling%20Algorithm%20returns,is%20kept%20to%20a%20minimum.
+21:03:02	 From  Austin Lu : https://en.wikipedia.org/wiki/Wikipedia:Database_download#Database_schema
+21:22:08	 From  Austin Lu : https://medium.com/@aakashchotrani/visualizing-your-own-word-embeddings-using-tensorflow-688b3a7750ee
+21:45:04	 From  Bingyan Liu : https://www.wikiwand.com/en/Special:Export
+21:47:02	 From  Austin Lu : https://github.com/wolfgarbe/WikipediaExport
+21:51:55	 From  Bingyan Liu : http://www.ardendertat.com/2011/05/30/how-to-implement-a-search-engine-part-1-create-index/
+21:57:50	 From  Marius Juston : https://en.wikipedia.org/wiki/Betweenness_centrality
+21:57:55	 From  Marius Juston : https://docs.google.com/document/d/10VL05FxUCQZMLb_jQfsfOMNR56ecxy0aIaqPH6KumBQ/edit#
+22:30:25	 From  Marius Juston : https://towardsdatascience.com/pagerank-3c568a7d2332
+22:37:28	 From  Marius Juston : https://www.redblobgames.com/pathfinding/a-star/introduction.html

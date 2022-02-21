@@ -1,0 +1,318 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ Wiki\+Graph crawls data from the public wikipedia database, stores it into a directed graph, with each wikipage being a vertex and each superlink from one page to another being an arrow (and edge). The goal of this project is to explore Wikipedia in an interesting and novel way.\hypertarget{index_autotoc_md31}{}\doxysection{Table of Contents}\label{index_autotoc_md31}
+
+\begin{DoxyItemize}
+\item \href{\#wikigraph}{\texttt{ Wiki\+Graph}}
+\begin{DoxyItemize}
+\item \href{\#table-of-contents}{\texttt{ Table of Contents}}
+\item \href{\#required-documents}{\texttt{ Required Documents}}
+\item \href{\#code}{\texttt{ Code}}
+\item \href{\#documentation}{\texttt{ Documentation}}
+\item \href{\#usage}{\texttt{ Usage}}
+\begin{DoxyItemize}
+\item \href{\#bfs}{\texttt{ BFS}}
+\item \href{\#dfs}{\texttt{ DFS}}
+\item \href{\#dijkstra}{\texttt{ Dijkstra}}
+\item \href{\#strongly-connected-components}{\texttt{ Strongly Connected Components}}
+\item \href{\#page-rank}{\texttt{ Page Rank}}
+\end{DoxyItemize}
+\item \href{\#tests}{\texttt{ Tests}}
+\item \href{\#visualization}{\texttt{ Visualization}}
+\item \href{\#video-presentation}{\texttt{ Video Presentation}}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md32}{}\doxysection{Required Documents}\label{index_autotoc_md32}
+The \mbox{\hyperlink{md_Documents_contract}{contract}}, ./\+Documents/development\%20(meeting\+\_\+notes).md \char`\"{}development logs\char`\"{}, ./\+Documents/goals\%20(project\+\_\+proposal).md \char`\"{}goals/project proposal\char`\"{} and \mbox{\hyperlink{md_Documents_result}{results}} are located in the \href{./Documents/}{\texttt{ ./\+Documents folder}}.\hypertarget{index_autotoc_md33}{}\doxysection{Code}\label{index_autotoc_md33}
+Our base data is stored in \href{database.txt}{\texttt{ {\ttfamily database.\+txt}}} (467,136 nodes, 44 MB), which is part of the wikipedia network graph. A larger version is in \href{largeDatabase.txt}{\texttt{ {\ttfamily large\+Database.\+txt}}} (533,642 nodes, 96 MB). They are obtained by our script crawler \href{wikipedia_scrapper.py}{\texttt{ {\ttfamily wikipedia\+\_\+scrapper.\+py}}}. The wikipedia network is stored with the following format \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{C++\}}
+\DoxyCodeLine{number of nodes in the whole database (leafs included)}
+\DoxyCodeLine{the name of the page, the number of the links it contains, the list of the links it contains comma seperated }
+\DoxyCodeLine{the name of the page, the number of the links it contains, the list of the links it contains comma seperated}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+ For example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{C++\}}
+\DoxyCodeLine{3}
+\DoxyCodeLine{Cheese,2,Pancake,Obi-\/Wan}
+\DoxyCodeLine{Pancake,1,Cheese}
+
+\end{DoxyCode}
+ See the following picture for a real example\+:
+
+
+
+The initial number of nodes in the databases is very important for large databases since our base structure for the \mbox{\hyperlink{classGraph}{Graph}} is an adjacency matrix with as backend a Hash\+Table. Since resizing Hash\+Tables is very expensive computation providing the expected number of nodes helps reduce the number of times this operation is called. Thus reducing the total load time.
+
+Our main code is in the folder \href{wiki_graph/}{\texttt{ {\ttfamily wiki\+\_\+graph}}}, including \href{./wiki_graph/BFS.cpp}{\texttt{ {\ttfamily BFS}}}, \href{./wiki_graph/DFS.cpp}{\texttt{ {\ttfamily DFS}}}, \href{./wiki_graph/PageRank.cpp}{\texttt{ {\ttfamily Page\+Rank}}}, \href{./wiki_graph/Dijkstra.cpp}{\texttt{ {\ttfamily Dijkstra}}} and \href{./wiki_graph/StronglyConnected.cpp}{\texttt{ {\ttfamily Strongly\+Connected}}}.
+
+To get the results, run the generated exectuables for each of the algorithms.\hypertarget{index_autotoc_md34}{}\doxysection{Documentation}\label{index_autotoc_md34}
+A Doxygen documentation of the project has also been generated in \href{docs/}{\texttt{ {\ttfamily docs}}}. If you wish to see documentation open up \href{./docs/html/index.html}{\texttt{ the index file on in browser}}\hypertarget{index_autotoc_md35}{}\doxysection{Usage}\label{index_autotoc_md35}
+For each term the list of functionalities \+: \mbox{\hyperlink{classBFS}{BFS}}, \mbox{\hyperlink{classDFS}{DFS}}, \mbox{\hyperlink{classPageRank}{Page\+Rank}}, \mbox{\hyperlink{classDijkstra}{Dijkstra}}, \mbox{\hyperlink{classStronglyConnected}{Strongly\+Connected}}, run make + the functionality name will will generate the executables. For example, 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{C++\}}
+\DoxyCodeLine{make Dijkstra}
+
+\end{DoxyCode}
+ will generate the executable Djkstra.\hypertarget{index_autotoc_md36}{}\doxysubsection{BFS}\label{index_autotoc_md36}
+To compile this exectuable you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make BFS}
+
+\end{DoxyCode}
+
+
+To run this exectuable you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./BFS [input file] [start point] [max number of nodes to traverse (0 to iterate through everything)] [output location (empty for console)]}
+
+\end{DoxyCode}
+
+
+The arguments are\+:
+
+
+\begin{DoxyItemize}
+\item The input file (default = large\+Database.\+txt) is the database to load, which is in the expected format described above
+\item The start point (default = Cheese) is the initial entry that you wish to start the \mbox{\hyperlink{classBFS}{BFS}} to iterate
+\item The max number of nodes to traverse (default = everything) is the number of nodes your wish to traverse, this can be helpful for very large databases.
+\item The output location is either the file you want to place the output to or the console
+\end{DoxyItemize}
+
+The output is in the format\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BFS index: Wikientry}
+\DoxyCodeLine{BFS index: Wikientry}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+
+
+Example\+:
+
+\hypertarget{index_autotoc_md37}{}\doxysubsection{DFS}\label{index_autotoc_md37}
+To compile this exectuable you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make DFS}
+
+\end{DoxyCode}
+
+
+To run this exectuable you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./DFS [input file] [start point] [max number of nodes to traverse (0 to iterate through everything)] [output location (empty for console)]}
+
+\end{DoxyCode}
+
+
+The arguments are\+:
+
+
+\begin{DoxyItemize}
+\item The input file (default = large\+Database.\+txt) is the database to load, which is in the expected format described above
+\item The start point (default = Cheese) is the initial entry that you wish to start the \mbox{\hyperlink{classBFS}{BFS}} to iterate
+\item The max number of nodes to traverse (default = everything) is the number of nodes your wish to traverse, this can be helpful for very large databases.
+\item The output location is either the file you want to place the output to or the console
+\end{DoxyItemize}
+
+The output is in the format\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DFS index: Wikientry}
+\DoxyCodeLine{DFS index: Wikientry}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+
+
+Example\+:
+
+\hypertarget{index_autotoc_md38}{}\doxysubsection{Dijkstra}\label{index_autotoc_md38}
+To compile this exectuable you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make Dijkstra}
+
+\end{DoxyCode}
+
+
+To run this exectuable you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./Dijkstra [input file] [start] [end] [output location (empty for console)]}
+
+\end{DoxyCode}
+
+
+The arguments are\+:
+
+
+\begin{DoxyItemize}
+\item The input file (default = large\+Database.\+txt) is the database to load, which is in the expected format described above
+\item The start point (default = Cheese) is the initial entry that you wish to start the \mbox{\hyperlink{classBFS}{BFS}} to iterate
+\item The end point (default = Cheese) the end location you want to reach
+\item The output location is either the file you want to place the output to or the console
+\end{DoxyItemize}
+
+The output is in the format\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{start point-\/>link1-\/>link2-\/>...-\/>end point-\/>END}
+
+\end{DoxyCode}
+
+
+If there exists no path then the output is in the format\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{end point-\/>END}
+
+\end{DoxyCode}
+
+
+Example\+:
+
+\hypertarget{index_autotoc_md39}{}\doxysubsection{Strongly Connected Components}\label{index_autotoc_md39}
+To compile this exectuable you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make StronglyConnected}
+
+\end{DoxyCode}
+
+
+To run this exectuable you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./StronglyConnected [input file] [n largest (0 for everything)] [output location (leave empty for console)]}
+
+\end{DoxyCode}
+
+
+The arguments are\+:
+
+
+\begin{DoxyItemize}
+\item The input file (default = large\+Database.\+txt) is the database to load, which is in the expected format described aboveiterate
+\item The n largest (default = everything) the total number of components to return, from largest to smallest.
+\item The output location is either the file you want to place the output to or the console
+\end{DoxyItemize}
+
+The output is in the format\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{index, (number of nodes in components): node1, node2, node3, ...}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+
+
+Example\+:
+
+\hypertarget{index_autotoc_md40}{}\doxysubsection{Page Rank}\label{index_autotoc_md40}
+To compile this exectuable you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make PageRank}
+
+\end{DoxyCode}
+
+
+To run this exectuable you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./PageRank [input file] [max number of nodes to print (0 to print everything)] [output location (leave empty for console)]}
+
+\end{DoxyCode}
+
+
+The arguments are\+:
+
+
+\begin{DoxyItemize}
+\item The input file (default = large\+Database.\+txt) is the database to load, which is in the expected format described aboveiterate
+\item The max number of nodes to print (default = everything) the number of nodes to print
+\item The output location is either the file you want to place the output to or the console
+\end{DoxyItemize}
+
+The output is in the format\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{The rank of node1 is : rank.}
+\DoxyCodeLine{The rank of node2 is : rank.}
+\DoxyCodeLine{The rank of node3 is : rank.}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+
+
+Example\+:
+
+\hypertarget{index_autotoc_md41}{}\doxysection{Tests}\label{index_autotoc_md41}
+Our tests code and tests data are in the folder \href{tests/}{\texttt{ tests}}
+
+To compile the tests\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make test}
+
+\end{DoxyCode}
+
+
+To run the tests you must run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./test}
+
+\end{DoxyCode}
+
+
+The tests test\+:
+\begin{DoxyItemize}
+\item test\+Read\+Graph\+: The base \mbox{\hyperlink{classGraph}{Graph}} data loading capabilities (i.\+e. given a file are we able to load the data as an adjacency matrix) using the \href{./tests/testDatabase.txt}{\texttt{ {\ttfamily test\+Database.\+txt}}} test graph.
+\item test\+Graph\+Transpose\+: The base \mbox{\hyperlink{classGraph}{Graph}} transpose function (i.\+e. for the Strongly Connected components algorithm we need to take the transpose of the graph, invert the edges)
+\item test\+Get\+Children\+: The base \mbox{\hyperlink{classGraph}{Graph}} get\+Children function (i.\+e. given a node name does it return the current children)
+\item test\+BFS\+: Tests that \mbox{\hyperlink{classBFS}{BFS}} returns the correct number of nodes and in the correct order using the \href{./tests/testDatabase.txt}{\texttt{ {\ttfamily test\+Database.\+txt}}} test graph.
+\item test\+BFSSmall\+: Tests that \mbox{\hyperlink{classBFS}{BFS}} returns the correct number of nodes and in the correct order using the \href{./tests/test-small.txt}{\texttt{ {\ttfamily test-\/small.\+txt}}} test graph.
+\item test\+BFSMedium\+: Tests that \mbox{\hyperlink{classBFS}{BFS}} returns the correct number of nodes and in the correct order using the \href{./tests/test-small.txt}{\texttt{ {\ttfamily test-\/med.\+txt}}} test graph.
+\item test\+DFS\+: Tests that \mbox{\hyperlink{classDFS}{DFS}} returns the correct number of nodes and in the correct order using the \href{testDatabase.txt}{\texttt{ {\ttfamily test\+Database.\+txt}}} test graph.
+\item test\+DFSSmall\+: Tests that \mbox{\hyperlink{classDFS}{DFS}} returns the correct number of nodes and in the correct order using the \href{./tests/test-small.txt}{\texttt{ {\ttfamily test-\/small.\+txt}}} test graph.
+\item test\+DFSMedium\+: Tests that \mbox{\hyperlink{classDFS}{DFS}} returns the correct number of nodes and in the correct order using the \href{./tests/test-small.txt}{\texttt{ {\ttfamily test-\/med.\+txt}}} test graph.
+\item test\+Dijkstra\+Small\+: Tests \mbox{\hyperlink{classDijkstra}{Dijkstra}} using the \href{./tests/test-self.txt}{\texttt{ {\ttfamily test-\/self.\+txt}}}, where the weight of edge is the number of children it the current node has. It runs through all the possible path options (excluding start=end and choosing a node that does not exist).
+\item test\+Dijkstra\+Self\+: Tests \mbox{\hyperlink{classDijkstra}{Dijkstra}} using the \href{./tests/test-self.txt}{\texttt{ {\ttfamily test-\/med.\+txt}}}, where the weight of each edge node is 1 except certain edges which are weighted 999 (and thus should never be traversed). It runs through all the possible path options (excluding start=end and choosing a node that does not exist).
+\item test\+Page\+Rank\+Mini\+: Tests Page Rank\textquotesingle{}s expected output of the \href{./tests/testMiniWiki.txt}{\texttt{ {\ttfamily test\+Mini\+Wiki.\+txt}}} nodes. The correct version of \mbox{\hyperlink{classPageRank}{Page\+Rank}} value is obtained by a matlab file \href{./tests/testPageRank/testPageRank.m}{\texttt{ {\ttfamily test\+Page\+Rank.\+m}}}.
+\item test\+Page\+Rank\+Small\+: Tests Page Rank\textquotesingle{}s expected output of the \href{./tests/testDatabase.txt}{\texttt{ {\ttfamily test\+Database.\+txt}}} nodes. The correct version of \mbox{\hyperlink{classPageRank}{Page\+Rank}} value is obtained by a matlab file \href{./tests/testPageRank/testPageRankSmall.m}{\texttt{ {\ttfamily test\+Page\+Rank\+Small.\+m}}}.
+\end{DoxyItemize}\hypertarget{index_autotoc_md42}{}\doxysection{Visualization}\label{index_autotoc_md42}
+We implemented an interactive visualization of the wiki graph by \href{./graph_visualization/color_visualization.py}{\texttt{ {\ttfamily color\+\_\+visualization.\+py}}} and present it as a html \href{./graph_visualization/Wikipedia\%20Network.html}{\texttt{ Wikipedia Network}}. In our visualization, each node is represented by a bubble, whose size is determined by the number of links it contains, and for all its children, we attaching them to their parent by gray straight lines. The nodes are evenly distributed in a 2D-\/plane with different color, and hanging the cursor one the node will open a box introducing the article name and the links it has. The interactive version is located here\+: \href{https://ginger000.github.io/}{\texttt{ https\+://ginger000.\+github.\+io/}}
+
+\hypertarget{index_autotoc_md43}{}\doxysection{Video Presentation}\label{index_autotoc_md43}
+The video presentation is located on You\+Tube here\+: \href{https://youtu.be/LBawlv6OBL8}{\texttt{ https\+://youtu.\+be/\+LBawlv6\+OBL8}}
+
+The video is also located here in case of an issue\+: \href{https://drive.google.com/file/d/1lQBlQKDtPQRKRH1ba7F5VnkDS0zHxBUe/view?usp=sharing}{\texttt{ https\+://drive.\+google.\+com/file/d/1l\+QBl\+QKDt\+PQRKRH1ba7\+F5\+Vnk\+DS0z\+Hx\+BUe/view?usp=sharing}} 

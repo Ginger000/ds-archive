@@ -1,0 +1,330 @@
+\hypertarget{classStronglyConnected}{}\doxysection{Strongly\+Connected Class Reference}
+\label{classStronglyConnected}\index{StronglyConnected@{StronglyConnected}}
+
+
+{\ttfamily \#include $<$Strongly\+Connected.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStronglyConnected_a7cf99f9dd775de608302c2ef6e8c010e}{Strongly\+Connected}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph)
+\item 
+\mbox{\hyperlink{classStronglyConnected_a45a41083e83244e451e0f7af8b929777}{$\sim$\+Strongly\+Connected}} ()
+\item 
+std\+::vector$<$ std\+::vector$<$ string $>$ $>$ \mbox{\hyperlink{classStronglyConnected_aa84eed361487186c03ae56f7e10fed92}{process}} ()
+\item 
+void \mbox{\hyperlink{classStronglyConnected_a63cffb0a4e354070c760695ef779728e}{print\+Components}} (std\+::ostream \&out=std\+::cout, int n=-\/1)
+\item 
+void \mbox{\hyperlink{classStronglyConnected_af0e9430dd5be35b0015c5623853b6f5d}{save\+Components}} (const string \&str, int n=-\/1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classStronglyConnected_ad7898b1bdb5540532f5ac8beca5d80b1}{traverse}} (string start, std\+::unordered\+\_\+set$<$ string $>$ \&visited, std\+::stack$<$ string $>$ \&stack)
+\item 
+void \mbox{\hyperlink{classStronglyConnected_ad3a1ccbe0db8ba20efb58b3caac8f3fd}{small\+DFS}} (string start, std\+::unordered\+\_\+set$<$ string $>$ \&visited, std\+::vector$<$ string $>$ \&fill)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStronglyConnected_a9b15d07a6dfe652395e3bddc5fd18146}\label{classStronglyConnected_a9b15d07a6dfe652395e3bddc5fd18146}} 
+\mbox{\hyperlink{classGraph}{Graph}} $\ast$ {\bfseries graph}
+\item 
+\mbox{\Hypertarget{classStronglyConnected_aced9916f611af66de6e6097fce7cb30c}\label{classStronglyConnected_aced9916f611af66de6e6097fce7cb30c}} 
+\mbox{\hyperlink{classGraph}{Graph}} $\ast$ {\bfseries transpose}
+\item 
+\mbox{\Hypertarget{classStronglyConnected_a109046404b4c57621f4ecfea791f7767}\label{classStronglyConnected_a109046404b4c57621f4ecfea791f7767}} 
+std\+::stack$<$ string $>$ {\bfseries stack}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Kosaraju\textquotesingle{}s implementation of the Strongly Connected graph. This implementation is similar to \href{https://www.geeksforgeeks.org/strongly-connected-components/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/strongly-\/connected-\/components/}} and \href{https://en.wikipedia.org/wiki/Kosaraju\%27s_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Kosaraju\%27s\+\_\+algorithm}} implementations 
+
+Definition at line 18 of file Strongly\+Connected.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStronglyConnected_a7cf99f9dd775de608302c2ef6e8c010e}\label{classStronglyConnected_a7cf99f9dd775de608302c2ef6e8c010e}} 
+\index{StronglyConnected@{StronglyConnected}!StronglyConnected@{StronglyConnected}}
+\index{StronglyConnected@{StronglyConnected}!StronglyConnected@{StronglyConnected}}
+\doxysubsubsection{\texorpdfstring{StronglyConnected()}{StronglyConnected()}}
+{\footnotesize\ttfamily Strongly\+Connected\+::\+Strongly\+Connected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+Default \mbox{\hyperlink{classStronglyConnected}{Strongly\+Connected}} graph constrctor
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The graph to find the strongly connected components of. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file Strongly\+Connected.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8                                              : graph(g), transpose(g-\/>\mbox{\hyperlink{classGraph_a8e1ef0e7ed58ac4853273fdf43c67801}{transpose}}()) \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStronglyConnected_a45a41083e83244e451e0f7af8b929777}\label{classStronglyConnected_a45a41083e83244e451e0f7af8b929777}} 
+\index{StronglyConnected@{StronglyConnected}!````~StronglyConnected@{$\sim$StronglyConnected}}
+\index{````~StronglyConnected@{$\sim$StronglyConnected}!StronglyConnected@{StronglyConnected}}
+\doxysubsubsection{\texorpdfstring{$\sim$StronglyConnected()}{~StronglyConnected()}}
+{\footnotesize\ttfamily Strongly\+Connected\+::$\sim$\+Strongly\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor of the \mbox{\hyperlink{classStronglyConnected}{Strongly\+Connected}} object instance 
+
+Definition at line 15 of file Strongly\+Connected.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15                                       \{}
+\DoxyCodeLine{16   \textcolor{keyword}{delete} transpose;}
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStronglyConnected_a63cffb0a4e354070c760695ef779728e}\label{classStronglyConnected_a63cffb0a4e354070c760695ef779728e}} 
+\index{StronglyConnected@{StronglyConnected}!printComponents@{printComponents}}
+\index{printComponents@{printComponents}!StronglyConnected@{StronglyConnected}}
+\doxysubsubsection{\texorpdfstring{printComponents()}{printComponents()}}
+{\footnotesize\ttfamily void Strongly\+Connected\+::print\+Components (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out\+Stream = {\ttfamily std\+:\+:cout},  }\item[{int}]{n = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+Processes and prints the component groups in this format\+:
+
+index, (number of items)\+: item1, item2, ....
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Stream} & Where to print the data to. Default std\+::cout (console) \\
+\hline
+{\em n} & Number of components to print out, -\/1 to print all \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file Strongly\+Connected.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{132                                                                     \{}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134   \textcolor{comment}{// Process the graph data}}
+\DoxyCodeLine{135   std::vector<std::vector<string>> out = \mbox{\hyperlink{classStronglyConnected_aa84eed361487186c03ae56f7e10fed92}{process}}();}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137   outStream << \textcolor{stringliteral}{"{}Connected Components:"{}} << std::endl;}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139   \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{140   \textcolor{comment}{// Go through each processed component and print it out}}
+\DoxyCodeLine{141   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&comp: out) \{}
+\DoxyCodeLine{142     \textcolor{keywordflow}{if} (n != -\/1 \&\& i >= n) \{}
+\DoxyCodeLine{143       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{144     \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     outStream << i << \textcolor{stringliteral}{"{}, ("{}} << comp.size() << \textcolor{stringliteral}{"{}): "{}};}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&e: comp) \{}
+\DoxyCodeLine{149       outStream << e << \textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{150     \}}
+\DoxyCodeLine{151     outStream << std::endl;}
+\DoxyCodeLine{152     outStream.flush();}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154     ++i;}
+\DoxyCodeLine{155   \}}
+\DoxyCodeLine{156 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStronglyConnected_aa84eed361487186c03ae56f7e10fed92}\label{classStronglyConnected_aa84eed361487186c03ae56f7e10fed92}} 
+\index{StronglyConnected@{StronglyConnected}!process@{process}}
+\index{process@{process}!StronglyConnected@{StronglyConnected}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ string $>$ $>$ Strongly\+Connected\+::process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return component groups listed by size in descending order 
+
+Definition at line 22 of file Strongly\+Connected.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                                                         \{}
+\DoxyCodeLine{23   std::stack<string> stack;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   \textcolor{comment}{// Empty set of visited nodes}}
+\DoxyCodeLine{26   std::unordered\_set<string> visited;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28   \textcolor{keywordtype}{string} key;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30   \textcolor{comment}{// Go through each of the nodes inside the graph}}
+\DoxyCodeLine{31   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} elems: graph-\/>\mbox{\hyperlink{classGraph_a735919f77857f362d0d5170b6ca5561d}{getGraph}}()) \{}
+\DoxyCodeLine{32     \textcolor{comment}{// Get the node key}}
+\DoxyCodeLine{33     key = elems.first;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{// If the node has not been visited}}
+\DoxyCodeLine{36     \textcolor{keywordflow}{if} (visited.find(key) == visited.end()) \{}
+\DoxyCodeLine{37       \textcolor{comment}{// Run a DFS on the graph all the while updating the visited nodes and the stack starting at key}}
+\DoxyCodeLine{38       \mbox{\hyperlink{classStronglyConnected_ad7898b1bdb5540532f5ac8beca5d80b1}{traverse}}(key, visited, stack);}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40   \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42   \textcolor{comment}{// Clear all the visited nodes}}
+\DoxyCodeLine{43   visited.clear();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{keywordtype}{string} v;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47   std::vector<std::vector<string>> output;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49   \textcolor{comment}{// Iterate through stack group until there is nothing left}}
+\DoxyCodeLine{50   \textcolor{keywordflow}{while} (!stack.empty()) \{}
+\DoxyCodeLine{51     \textcolor{comment}{// Get the current top of stack}}
+\DoxyCodeLine{52     v = stack.top();}
+\DoxyCodeLine{53     stack.pop();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{// If the node has note been visited}}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} (visited.find(v) == visited.end()) \{}
+\DoxyCodeLine{57       std::vector<string> current;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59       \textcolor{comment}{// Run a DFS on the transverse of the graph on the current node all the while updating}}
+\DoxyCodeLine{60       \textcolor{comment}{// the visited set and the adding the visited nodes to the components list}}
+\DoxyCodeLine{61       \mbox{\hyperlink{classStronglyConnected_ad3a1ccbe0db8ba20efb58b3caac8f3fd}{smallDFS}}(v, visited, current);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63       \textcolor{comment}{// Add the component group}}
+\DoxyCodeLine{64       output.push\_back(current);}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66   \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68   \textcolor{comment}{// Sort the component groups by their sizes. The largest is first and the smallest size is last}}
+\DoxyCodeLine{69   std::sort(output.begin(), output.end(),}
+\DoxyCodeLine{70             [](std::vector<string> x1, std::vector<string> x2) \{ return x1.size() > x2.size(); \});}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72   \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{73 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStronglyConnected_af0e9430dd5be35b0015c5623853b6f5d}\label{classStronglyConnected_af0e9430dd5be35b0015c5623853b6f5d}} 
+\index{StronglyConnected@{StronglyConnected}!saveComponents@{saveComponents}}
+\index{saveComponents@{saveComponents}!StronglyConnected@{StronglyConnected}}
+\doxysubsubsection{\texorpdfstring{saveComponents()}{saveComponents()}}
+{\footnotesize\ttfamily void Strongly\+Connected\+::save\+Components (\begin{DoxyParamCaption}\item[{const string \&}]{str,  }\item[{int}]{n = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+Runs print\+Components but outputs the data to a file
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & the file name to output to \\
+\hline
+{\em n} & Number of components to print out, -\/1 to print all \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 164 of file Strongly\+Connected.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{164                                                                \{}
+\DoxyCodeLine{165   \textcolor{comment}{// The file stream object}}
+\DoxyCodeLine{166   std::ofstream file;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168   \textcolor{comment}{// Creating/Opening the file}}
+\DoxyCodeLine{169   file.open(str.c\_str());}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171   \textcolor{comment}{// Run the printComponents for the processing and the printing}}
+\DoxyCodeLine{172   \mbox{\hyperlink{classStronglyConnected_a63cffb0a4e354070c760695ef779728e}{printComponents}}(file, n);}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174   \textcolor{comment}{// Closing file in order o avoid leaks}}
+\DoxyCodeLine{175   file.close();}
+\DoxyCodeLine{176 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStronglyConnected_ad3a1ccbe0db8ba20efb58b3caac8f3fd}\label{classStronglyConnected_ad3a1ccbe0db8ba20efb58b3caac8f3fd}} 
+\index{StronglyConnected@{StronglyConnected}!smallDFS@{smallDFS}}
+\index{smallDFS@{smallDFS}!StronglyConnected@{StronglyConnected}}
+\doxysubsubsection{\texorpdfstring{smallDFS()}{smallDFS()}}
+{\footnotesize\ttfamily void Strongly\+Connected\+::small\+DFS (\begin{DoxyParamCaption}\item[{string}]{start,  }\item[{std\+::unordered\+\_\+set$<$ string $>$ \&}]{visited,  }\item[{std\+::vector$<$ string $>$ \&}]{fill }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Implement a recursive \mbox{\hyperlink{classDFS}{DFS}} on the transpose of the \mbox{\hyperlink{classGraph}{Graph}} all the while adding the values traversed in pre order format. Adds the nodes to the visited set. This \mbox{\hyperlink{classDFS}{DFS}} adds all the elements to components vector making all the components in that vector strongly connected
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & the current node to traverse in \mbox{\hyperlink{classDFS}{DFS}} format \\
+\hline
+{\em visited} & the hashset of visited nodes \\
+\hline
+{\em fill} & the current component to add the elements to. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 109 of file Strongly\+Connected.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{109                                                                                                          \{}
+\DoxyCodeLine{110   \textcolor{comment}{// Set the current node as visited}}
+\DoxyCodeLine{111   visited.insert(start);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113   \textcolor{comment}{// Add the current node to the current component vector}}
+\DoxyCodeLine{114   fill.push\_back(start);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116   \textcolor{comment}{// Traverse the transpose graph in a recursive DFS fashion}}
+\DoxyCodeLine{117   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i: transpose-\/>\mbox{\hyperlink{classGraph_ac8507d9150c2eca50728a892150f1717}{getChildren}}(start)) \{}
+\DoxyCodeLine{118     \textcolor{keywordflow}{if} (visited.find(i) == visited.end()) \{}
+\DoxyCodeLine{119       \mbox{\hyperlink{classStronglyConnected_ad3a1ccbe0db8ba20efb58b3caac8f3fd}{smallDFS}}(i, visited, fill);}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121   \}}
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStronglyConnected_ad7898b1bdb5540532f5ac8beca5d80b1}\label{classStronglyConnected_ad7898b1bdb5540532f5ac8beca5d80b1}} 
+\index{StronglyConnected@{StronglyConnected}!traverse@{traverse}}
+\index{traverse@{traverse}!StronglyConnected@{StronglyConnected}}
+\doxysubsubsection{\texorpdfstring{traverse()}{traverse()}}
+{\footnotesize\ttfamily void Strongly\+Connected\+::traverse (\begin{DoxyParamCaption}\item[{string}]{start,  }\item[{std\+::unordered\+\_\+set$<$ string $>$ \&}]{visited,  }\item[{std\+::stack$<$ string $>$ \&}]{stack }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Implement a recursive \mbox{\hyperlink{classDFS}{DFS}} on the \mbox{\hyperlink{classGraph}{Graph}} all the while adding the values traversed in post order format. Adds the nodes to the visited set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & the current node to traverse in \mbox{\hyperlink{classDFS}{DFS}} format \\
+\hline
+{\em visited} & the hashset of visited nodes \\
+\hline
+{\em stack} & the stack of nodes added in post traverse format. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 83 of file Strongly\+Connected.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83                                                                                                          \{}
+\DoxyCodeLine{84   \textcolor{comment}{// Flag the current node as visited}}
+\DoxyCodeLine{85   visited.insert(start);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87   \textcolor{comment}{// Go through all the child nodes of the child}}
+\DoxyCodeLine{88   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i: graph-\/>\mbox{\hyperlink{classGraph_ac8507d9150c2eca50728a892150f1717}{getChildren}}(start)) \{}
+\DoxyCodeLine{89     \textcolor{comment}{// Check if the node has not been visited}}
+\DoxyCodeLine{90     \textcolor{keywordflow}{if} (visited.find(i) == visited.end()) \{}
+\DoxyCodeLine{91       \textcolor{comment}{// Recurse DFS of the children}}
+\DoxyCodeLine{92       \mbox{\hyperlink{classStronglyConnected_ad7898b1bdb5540532f5ac8beca5d80b1}{traverse}}(i, visited, stack);}
+\DoxyCodeLine{93     \}}
+\DoxyCodeLine{94   \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96   \textcolor{comment}{// Add the current node to the stack}}
+\DoxyCodeLine{97   stack.push(start);}
+\DoxyCodeLine{98 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+wiki\+\_\+graph/Strongly\+Connected.\+h\item 
+wiki\+\_\+graph/Strongly\+Connected.\+cpp\end{DoxyCompactItemize}

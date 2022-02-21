@@ -1,0 +1,293 @@
+\hypertarget{util_8cpp}{}\doxysection{util/util.cpp File Reference}
+\label{util_8cpp}\index{util/util.cpp@{util/util.cpp}}
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structutil_1_1internal_1_1exec_1_1exec__timers}{util\+::internal\+::exec\+::exec\+\_\+timers}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{util_8cpp_acc422dfe0ed3fba7fa2cb72e5c5624e5}\label{util_8cpp_acc422dfe0ed3fba7fa2cb72e5c5624e5}} 
+void {\bfseries util\+::\+SET\+\_\+\+ERROR\+\_\+\+MESSAGE} (const char $\ast$message)
+\item 
+\mbox{\Hypertarget{util_8cpp_ad033d81961017305dc33f89351cef2b9}\label{util_8cpp_ad033d81961017305dc33f89351cef2b9}} 
+char $\ast$ {\bfseries util\+::internal\+::exec\+::allocate\+Cstr} (const string \&str)
+\item 
+\mbox{\Hypertarget{util_8cpp_a1fbe65c1ff2710fa76f5a7287caea5e6}\label{util_8cpp_a1fbe65c1ff2710fa76f5a7287caea5e6}} 
+void {\bfseries util\+::internal\+::exec\+::free\+Cstr} (const char $\ast$cstr)
+\item 
+\mbox{\Hypertarget{util_8cpp_af303bfb8174d24aba8dd0eef046c74f0}\label{util_8cpp_af303bfb8174d24aba8dd0eef046c74f0}} 
+pair$<$ int, int $>$ {\bfseries util\+::internal\+::exec\+::get\+Fds\+From\+Stream} (const ostream $\ast$stream)
+\item 
+\mbox{\Hypertarget{util_8cpp_a26087146765a85aa98e7adda783b65da}\label{util_8cpp_a26087146765a85aa98e7adda783b65da}} 
+exec\+\_\+timers {\bfseries util\+::internal\+::exec\+::get\+\_\+exec\+\_\+timers} ()
+\item 
+\mbox{\Hypertarget{util_8cpp_a58cfc0467cc2fe21eb43d06cde0413de}\label{util_8cpp_a58cfc0467cc2fe21eb43d06cde0413de}} 
+void {\bfseries util\+::internal\+::exec\+::set\+\_\+exec\+\_\+timers} (const exec\+\_\+timers \&timers)
+\item 
+\mbox{\Hypertarget{util_8cpp_aa9de2c49e1a965b9beeadcd1579426e3}\label{util_8cpp_aa9de2c49e1a965b9beeadcd1579426e3}} 
+void {\bfseries util\+::internal\+::exec\+::redirect\+\_\+to\+\_\+fd} (const int redirect\+\_\+fd)
+\item 
+\mbox{\Hypertarget{util_8cpp_a725f39009999228842b380ba8c45be02}\label{util_8cpp_a725f39009999228842b380ba8c45be02}} 
+char $\ast$$\ast$ {\bfseries util\+::internal\+::exec\+::cstr\+\_\+array\+\_\+from\+\_\+vector\+\_\+string} (const string \&command, const vector$<$ string $>$ \&args)
+\item 
+\mbox{\Hypertarget{util_8cpp_a7cf22df19dcad2d99c4501380cfbb5c4}\label{util_8cpp_a7cf22df19dcad2d99c4501380cfbb5c4}} 
+void {\bfseries util\+::internal\+::exec\+::cstr\+\_\+array\+\_\+free} (const char $\ast$const $\ast$cstr)
+\item 
+\mbox{\Hypertarget{util_8cpp_a9e8b8950f44552c6a8f6e8d0a92630c6}\label{util_8cpp_a9e8b8950f44552c6a8f6e8d0a92630c6}} 
+void {\bfseries util\+::internal\+::exec\+::fd\+\_\+to\+\_\+ostream} (int fd, ostream $\ast$output)
+\item 
+pid\+\_\+t \mbox{\hyperlink{util_8cpp_a2d993b53306d43975c85adf399d3191f}{util\+::internal\+::exec\+::exec\+\_\+cmd}} (const char $\ast$cmd, const char $\ast$const $\ast$args, int redirect\+\_\+fd, int outpipe\+\_\+fd=-\/1)
+\item 
+\mbox{\Hypertarget{util_8cpp_a75dda7c9aa4e1e7cfc2d768651860a1f}\label{util_8cpp_a75dda7c9aa4e1e7cfc2d768651860a1f}} 
+uint8\+\_\+t {\bfseries util\+::internal\+::exec\+::exec\+\_\+status} (pid\+\_\+t pid)
+\item 
+\mbox{\Hypertarget{util_8cpp_a3c2f56c5eff5cce993a06847f9b84534}\label{util_8cpp_a3c2f56c5eff5cce993a06847f9b84534}} 
+int {\bfseries util\+::monad\+\_\+system} (const char $\ast$command)
+\item 
+\mbox{\Hypertarget{util_8cpp_a227e1d968632e332179009a213ca94a7}\label{util_8cpp_a227e1d968632e332179009a213ca94a7}} 
+int8\+\_\+t {\bfseries util\+::exec} (const string \&command, const vector$<$ string $>$ \&args, ostream $\ast$output)
+\item 
+\mbox{\Hypertarget{util_8cpp_aea292f581ddc3d9c2b5c9bc7f661fd26}\label{util_8cpp_aea292f581ddc3d9c2b5c9bc7f661fd26}} 
+int8\+\_\+t {\bfseries util\+::exec} (int redirect\+\_\+fd, const string \&command, const vector$<$ string $>$ \&args)
+\item 
+\mbox{\Hypertarget{util_8cpp_a661aa81013cf12fa7e866da2be55acf1}\label{util_8cpp_a661aa81013cf12fa7e866da2be55acf1}} 
+int8\+\_\+t {\bfseries util\+::exec} (int redirect\+\_\+fd, const char $\ast$command, const char $\ast$arg1, const char $\ast$arg2, const char $\ast$arg3, const char $\ast$arg4, const char $\ast$arg5, const char $\ast$arg6)
+\item 
+\mbox{\Hypertarget{util_8cpp_af9271b7f6c24ba4bc3ff346decfe621a}\label{util_8cpp_af9271b7f6c24ba4bc3ff346decfe621a}} 
+int {\bfseries util\+::chdir} (const string \&dir)
+\item 
+\mbox{\Hypertarget{util_8cpp_af7a81c88d0f068a08e0949e8853385a5}\label{util_8cpp_af7a81c88d0f068a08e0949e8853385a5}} 
+string {\bfseries util\+::strip\+Trailing\+Slash} (const string \&path)
+\item 
+\mbox{\Hypertarget{util_8cpp_abf3d38cf75eeb33a238fd86ea077b70f}\label{util_8cpp_abf3d38cf75eeb33a238fd86ea077b70f}} 
+string {\bfseries util\+::get\+Base\+Dir} (const string \&path)
+\item 
+\mbox{\Hypertarget{util_8cpp_a4980f0595733121a59782efca65b0881}\label{util_8cpp_a4980f0595733121a59782efca65b0881}} 
+void {\bfseries util\+::assert\+Exists} (const string \&path, int exit\+\_\+code)
+\item 
+\mbox{\Hypertarget{util_8cpp_a9fc1e1d9d57818f02366d1fdd59ae746}\label{util_8cpp_a9fc1e1d9d57818f02366d1fdd59ae746}} 
+bool {\bfseries util\+::exists} (const string \&path)
+\item 
+\mbox{\Hypertarget{util_8cpp_a257a4d5a805e172dc84ee86c9b34e048}\label{util_8cpp_a257a4d5a805e172dc84ee86c9b34e048}} 
+mode\+\_\+t {\bfseries util\+::permissions} (const string \&path)
+\item 
+\mbox{\Hypertarget{util_8cpp_ae5b39f4eac58ade14207baf61fff09f9}\label{util_8cpp_ae5b39f4eac58ade14207baf61fff09f9}} 
+void {\bfseries util\+::force\+Remove\+Dir} (string dir)
+\item 
+\mbox{\Hypertarget{util_8cpp_abffe8885ca0fd6a7614db0bd4aab26a3}\label{util_8cpp_abffe8885ca0fd6a7614db0bd4aab26a3}} 
+string {\bfseries util\+::getcwdstr} ()
+\item 
+\mbox{\Hypertarget{util_8cpp_a617376776c4c8413358de7724610aeeb}\label{util_8cpp_a617376776c4c8413358de7724610aeeb}} 
+void {\bfseries util\+::copy\+File} (const string \&source, const string \&dest)
+\item 
+\mbox{\Hypertarget{util_8cpp_a6c02fdfce91b756f08ef5d81103e18ef}\label{util_8cpp_a6c02fdfce91b756f08ef5d81103e18ef}} 
+void {\bfseries util\+::copy\+File\+Or\+Dir} (const string \&source, const string \&dest)
+\item 
+\mbox{\Hypertarget{util_8cpp_a0a936d59ce09160801d4a751d8148d97}\label{util_8cpp_a0a936d59ce09160801d4a751d8148d97}} 
+void {\bfseries util\+::copy\+Files} (const string \&source\+Folder, const string \&dest\+Folder, const vector$<$ string $>$ \&files)
+\item 
+\mbox{\Hypertarget{util_8cpp_a5baf3f7d232b18e9f74ca13891806662}\label{util_8cpp_a5baf3f7d232b18e9f74ca13891806662}} 
+void {\bfseries util\+::protect\+Files} (const string \&folder, const vector$<$ string $>$ \&files)
+\item 
+\mbox{\Hypertarget{util_8cpp_a1316280fbbf7025a5bb3ca363c6e8953}\label{util_8cpp_a1316280fbbf7025a5bb3ca363c6e8953}} 
+void {\bfseries util\+::protect\+Dir} (const string \&dir)
+\item 
+\mbox{\Hypertarget{util_8cpp_a277918417be55161508eba2fd615642e}\label{util_8cpp_a277918417be55161508eba2fd615642e}} 
+vector$<$ string $>$ {\bfseries util\+::get\+\_\+files\+\_\+in\+\_\+dir} (const string \&dir, bool concatdir)
+\item 
+\mbox{\Hypertarget{util_8cpp_a20b57bf9e33c5f9f497bf94f01d96cd7}\label{util_8cpp_a20b57bf9e33c5f9f497bf94f01d96cd7}} 
+bool {\bfseries util\+::is\+\_\+symlink} (const string \&file)
+\item 
+\mbox{\Hypertarget{util_8cpp_ace5b97fb107699d344a89fb11f78e82c}\label{util_8cpp_ace5b97fb107699d344a89fb11f78e82c}} 
+string {\bfseries util\+::get\+\_\+symlink\+\_\+target} (const string \&symlink)
+\item 
+\mbox{\Hypertarget{util_8cpp_a97ff68960574178b49fb6b430156bdac}\label{util_8cpp_a97ff68960574178b49fb6b430156bdac}} 
+void {\bfseries util\+::link\+Dirs} (const string \&source\+Folder, const string \&dest\+Folder, const vector$<$ string $>$ \&dirs)
+\item 
+\mbox{\Hypertarget{util_8cpp_a0c1e22f78bfcc881dc9fcff13b23a087}\label{util_8cpp_a0c1e22f78bfcc881dc9fcff13b23a087}} 
+bool {\bfseries util\+::replace\+First} (string \&str, const string \&toreplace, const string \&with)
+\item 
+\mbox{\Hypertarget{util_8cpp_a91d5eefe388935ea22f5e9e711ed9e06}\label{util_8cpp_a91d5eefe388935ea22f5e9e711ed9e06}} 
+size\+\_\+t {\bfseries util\+::replace\+All} (string \&str, const string \&toreplace, const string \&with)
+\item 
+\mbox{\Hypertarget{util_8cpp_aa48e568076872bd82883ef2a885680e7}\label{util_8cpp_aa48e568076872bd82883ef2a885680e7}} 
+size\+\_\+t {\bfseries util\+::replace\+All\+Internal} (string \&str, const string \&toreplace, const string \&with)
+\item 
+\mbox{\Hypertarget{util_8cpp_a4822f65bd3dfc00067969745e6572464}\label{util_8cpp_a4822f65bd3dfc00067969745e6572464}} 
+size\+\_\+t {\bfseries util\+::find\+Nth\+Last} (const string \&str, char c, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{util_8cpp_a6869c2b5d448c7b5978e0917e49de730}\label{util_8cpp_a6869c2b5d448c7b5978e0917e49de730}} 
+string {\bfseries util\+::read\+\_\+string\+\_\+from\+\_\+\+FILE} (FILE $\ast$file, size\+\_\+t max\+\_\+length)
+\item 
+\mbox{\Hypertarget{util_8cpp_ab1de380a5ba1fee9ba8bf7f05c31f6f7}\label{util_8cpp_ab1de380a5ba1fee9ba8bf7f05c31f6f7}} 
+void {\bfseries util\+::write\+\_\+string\+\_\+to\+\_\+\+FILE} (FILE $\ast$file, const char $\ast$str)
+\item 
+\mbox{\Hypertarget{util_8cpp_a15bfbbc718c70fee64d73daaee3ed50b}\label{util_8cpp_a15bfbbc718c70fee64d73daaee3ed50b}} 
+string {\bfseries util\+::read\+File} (const string \&filename)
+\item 
+\mbox{\Hypertarget{util_8cpp_a0169d61e0de13fecd23ecd7f06f0e4ec}\label{util_8cpp_a0169d61e0de13fecd23ecd7f06f0e4ec}} 
+void {\bfseries util\+::read\+File} (string filename, vector$<$ string $>$ \&lines)
+\item 
+\mbox{\Hypertarget{util_8cpp_ace3230fe19cbafc29384a2ac2042dd40}\label{util_8cpp_ace3230fe19cbafc29384a2ac2042dd40}} 
+char $\ast$ {\bfseries util\+::process\+Options} (int argc, char $\ast$$\ast$argv, Options\+Map \&opts, vector$<$ string $>$ \&args)
+\item 
+\mbox{\Hypertarget{util_8cpp_a28212b67d1e9681cf0455d66ca7353cf}\label{util_8cpp_a28212b67d1e9681cf0455d66ca7353cf}} 
+void {\bfseries util\+::make\+Lower} (string \&str)
+\item 
+\mbox{\Hypertarget{util_8cpp_ac6cab6845a7491c1e5223412695a57e1}\label{util_8cpp_ac6cab6845a7491c1e5223412695a57e1}} 
+string {\bfseries util\+::to\+Lower} (const string \&str)
+\item 
+ssize\+\_\+t \mbox{\hyperlink{util_8cpp_a371c086d61cd921c4f7020810ce6ad3a}{util\+::write\+Bytes\+To\+File}} (signed int file\+Descriptor, const char $\ast$buffer, unsigned int buffer\+Length)
+\item 
+\mbox{\Hypertarget{util_8cpp_abe05f1726a77fbea0ba40b6d2ca8e6c2}\label{util_8cpp_abe05f1726a77fbea0ba40b6d2ca8e6c2}} 
+ssize\+\_\+t {\bfseries util\+::writen} (int fd, const void $\ast$vptr, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{util_8cpp_af426b2aa4eae915da75e83a750fcb99c}\label{util_8cpp_af426b2aa4eae915da75e83a750fcb99c}} 
+ssize\+\_\+t {\bfseries util\+::readn} (int fd, void $\ast$vptr, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{util_8cpp_a53652a2aeea82ed5f8f01405a433a774}\label{util_8cpp_a53652a2aeea82ed5f8f01405a433a774}} 
+void {\bfseries util\+::rename\+\_\+main} (const string \&file, const string \&newname)
+\item 
+\mbox{\Hypertarget{util_8cpp_abab453dd7163e321e00bdd1a7bb86b3d}\label{util_8cpp_abab453dd7163e321e00bdd1a7bb86b3d}} 
+vector$<$ string $>$ {\bfseries util\+::tokenize} (const string \&str, char delim)
+\item 
+\mbox{\Hypertarget{util_8cpp_aa3e0afc7bc62974d42432054c7e48367}\label{util_8cpp_aa3e0afc7bc62974d42432054c7e48367}} 
+vector$<$ string $>$ {\bfseries util\+::tokenize} (const string \&str, const string \&delims)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{util_8cpp_aa006daaf11f1e2e45a6ababaf463212b}\label{util_8cpp_aa006daaf11f1e2e45a6ababaf463212b}} 
+char $\ast$$\ast$ {\bfseries environ}
+\item 
+\mbox{\Hypertarget{util_8cpp_af0bf05c98a6d2225c58bd8caccb1d01b}\label{util_8cpp_af0bf05c98a6d2225c58bd8caccb1d01b}} 
+const char $\ast$ {\bfseries util\+::internal\+::error\+\_\+prefix} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{util_8cpp_ac039271cef9a80f76cd4c73eb4264272}\label{util_8cpp_ac039271cef9a80f76cd4c73eb4264272}} 
+const char $\ast$ {\bfseries util\+::colorize\+::\+BLACK} = \char`\"{}\textbackslash{}033\mbox{[}39m\char`\"{}
+\item 
+\mbox{\Hypertarget{util_8cpp_a1f12ccfa6095c52d0ff258f7b3a7b953}\label{util_8cpp_a1f12ccfa6095c52d0ff258f7b3a7b953}} 
+const char $\ast$ {\bfseries util\+::colorize\+::\+GREEN} = \char`\"{}\textbackslash{}033\mbox{[}32m\char`\"{}
+\item 
+\mbox{\Hypertarget{util_8cpp_ab63b694dc063a207c61de291f70f2376}\label{util_8cpp_ab63b694dc063a207c61de291f70f2376}} 
+const char $\ast$ {\bfseries util\+::colorize\+::\+RED} = \char`\"{}\textbackslash{}033\mbox{[}31m\char`\"{}
+\item 
+\mbox{\Hypertarget{util_8cpp_ac307fc5d172ae6746f3fd19d46cb25ce}\label{util_8cpp_ac307fc5d172ae6746f3fd19d46cb25ce}} 
+const bool {\bfseries util\+::colorize\+::is\+\_\+color\+\_\+enabled} = isatty(STDOUT\+\_\+\+FILENO)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+CS 225 Util Library \begin{DoxyAuthor}{Author}
+Jack Toole 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{util_8cpp_a2d993b53306d43975c85adf399d3191f}\label{util_8cpp_a2d993b53306d43975c85adf399d3191f}} 
+\index{util.cpp@{util.cpp}!exec\_cmd@{exec\_cmd}}
+\index{exec\_cmd@{exec\_cmd}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{exec\_cmd()}{exec\_cmd()}}
+{\footnotesize\ttfamily pid\+\_\+t util\+::internal\+::exec\+::exec\+\_\+cmd (\begin{DoxyParamCaption}\item[{const char $\ast$}]{cmd,  }\item[{const char $\ast$const $\ast$}]{args,  }\item[{int}]{redirect\+\_\+fd,  }\item[{int}]{outpipe\+\_\+fd = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+Forks and executes the given command in child process, then returns child process pid. Use exec\+\_\+status() to wait and retrieve child return status.
+
+heavily refactored, but originally from\+: \href{http://stackoverflow.com/questions/2180079/how-can-i-copy-a-file-on-unix-using-c}{\texttt{ http\+://stackoverflow.\+com/questions/2180079/how-\/can-\/i-\/copy-\/a-\/file-\/on-\/unix-\/using-\/c}} 
+
+Definition at line 165 of file util.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{168                                     \{}
+\DoxyCodeLine{169   \textcolor{comment}{// Save timer values :)}}
+\DoxyCodeLine{170   \textcolor{comment}{// These are preserved across the parent, but not inherited by the child}}
+\DoxyCodeLine{171   \textcolor{comment}{// let's change that}}
+\DoxyCodeLine{172   exec\_timers timers = get\_exec\_timers();}
+\DoxyCodeLine{173   pid\_t pid = fork();}
+\DoxyCodeLine{174   \textcolor{keywordflow}{if} (pid == 0) \{}
+\DoxyCodeLine{175     \textcolor{comment}{// child}}
+\DoxyCodeLine{176     set\_exec\_timers(timers);}
+\DoxyCodeLine{177     redirect\_to\_fd(redirect\_fd);}
+\DoxyCodeLine{178     \textcolor{keywordflow}{if} (outpipe\_fd != -\/1) \{}
+\DoxyCodeLine{179       close(outpipe\_fd);}
+\DoxyCodeLine{180     \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \textcolor{comment}{// Sanitize environment}}
+\DoxyCodeLine{183     \textcolor{keywordtype}{char} path[] = \textcolor{stringliteral}{"{}PATH=/class/cs225/llvm/bin:/bin/:/usr/bin:/usr/local/bin"{}};}
+\DoxyCodeLine{184     \textcolor{keywordtype}{char} libpath[] =}
+\DoxyCodeLine{185         \textcolor{stringliteral}{"{}LD\_LIBRARY\_PATH=/software/intel-\/composer-\/2011u5-\/x86\_64/lib/intel64/:\$LD\_LIBRARY\_PATH"{}}; \textcolor{comment}{// path for libiomp5.so}}
+\DoxyCodeLine{186     \textcolor{keywordtype}{char} licenses[] =}
+\DoxyCodeLine{187         \textcolor{stringliteral}{"{}INTEL\_LICENSE\_FILE=28518@intel.webstore.illinois.edu:/software/intel-\/composer-\/2011u5-\/x86\_64/composerxe-\/2011.5.220/licenses:/opt/intel/licenses:/home/massung1/intel/licenses"{}}; \textcolor{comment}{// also for parallel labs}}
+\DoxyCodeLine{188     \textcolor{comment}{// Turn off glibc errors default write-\/to-\/terminal behaviour, because}}
+\DoxyCodeLine{189     \textcolor{comment}{// it does not get caught by stderr. This instead results in an abort.}}
+\DoxyCodeLine{190     \textcolor{keywordtype}{char} redirect\_glibc[] = \textcolor{stringliteral}{"{}LIBC\_FATAL\_STDERR\_=1"{}};}
+\DoxyCodeLine{191     \textcolor{comment}{// Turn on ASAN leak detection}}
+\DoxyCodeLine{192     \textcolor{keywordtype}{char} asan\_options[] = \textcolor{stringliteral}{"{}ASAN\_OPTIONS=\(\backslash\)"{}detect\_leaks=1\(\backslash\)"{}"{}};}
+\DoxyCodeLine{193     \textcolor{keywordtype}{char} *newenv[] = \{path, libpath, licenses, redirect\_glibc, asan\_options, NULL\};}
+\DoxyCodeLine{194     environ = newenv;}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196     \textcolor{comment}{// Swap out child process image with the command, searching}}
+\DoxyCodeLine{197     \textcolor{comment}{// in the specified path.}}
+\DoxyCodeLine{198     \textcolor{comment}{//}}
+\DoxyCodeLine{199     \textcolor{comment}{// The const\_cast of the argument pointer from const char ** to}}
+\DoxyCodeLine{200     \textcolor{comment}{// char * const * is perfectly safe, as the string contents are never}}
+\DoxyCodeLine{201     \textcolor{comment}{// modified by the call.}}
+\DoxyCodeLine{202     \textcolor{comment}{//}}
+\DoxyCodeLine{203     \textcolor{comment}{// The reason the argument type is char * const * is to ensure}}
+\DoxyCodeLine{204     \textcolor{comment}{// backwards-\/compatibility for existing code, as C standard does not}}
+\DoxyCodeLine{205     \textcolor{comment}{// allow implicit cast from char ** to const char * const *.}}
+\DoxyCodeLine{206     \textcolor{comment}{// See RATIONALE section of}}
+\DoxyCodeLine{207     \textcolor{comment}{// http://pubs.opengroup.org/onlinepubs/009695399/functions/exec.html}}
+\DoxyCodeLine{208     \textcolor{comment}{// for further details.}}
+\DoxyCodeLine{209     execvp(cmd, \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char} *\textcolor{keyword}{const }*\textcolor{keyword}{>}(args));}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211     \textcolor{comment}{// If control reached here, an error occured}}
+\DoxyCodeLine{212     cerr << \textcolor{stringliteral}{"{}exec("{}} << \textcolor{charliteral}{'\(\backslash\)"{}'} << cmd << \textcolor{charliteral}{'\(\backslash\)"{}'};}
+\DoxyCodeLine{213     \textcolor{keywordflow}{while} (args) \{}
+\DoxyCodeLine{214       cerr << \textcolor{stringliteral}{"{}, \(\backslash\)"{}"{}} << *args++ << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{215     \}}
+\DoxyCodeLine{216     cerr << \textcolor{stringliteral}{"{}) failed: "{}} << strerror(errno) << endl;}
+\DoxyCodeLine{217     exit(-\/1);}
+\DoxyCodeLine{218   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (pid > 0) \{}
+\DoxyCodeLine{219     \textcolor{comment}{// parent (success)}}
+\DoxyCodeLine{220     \textcolor{comment}{// close the other end of pipe if piped, then return control to caller}}
+\DoxyCodeLine{221     \textcolor{keywordflow}{if} (outpipe\_fd != -\/1) \{}
+\DoxyCodeLine{222       close(redirect\_fd);}
+\DoxyCodeLine{223     \}}
+\DoxyCodeLine{224   \}}
+\DoxyCodeLine{225   \textcolor{keywordflow}{return} pid;}
+\DoxyCodeLine{226 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{util_8cpp_a371c086d61cd921c4f7020810ce6ad3a}\label{util_8cpp_a371c086d61cd921c4f7020810ce6ad3a}} 
+\index{util.cpp@{util.cpp}!writeBytesToFile@{writeBytesToFile}}
+\index{writeBytesToFile@{writeBytesToFile}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{writeBytesToFile()}{writeBytesToFile()}}
+{\footnotesize\ttfamily ssize\+\_\+t util\+::write\+Bytes\+To\+File (\begin{DoxyParamCaption}\item[{signed int}]{file\+Descriptor,  }\item[{const char $\ast$}]{buffer,  }\item[{unsigned int}]{buffer\+Length }\end{DoxyParamCaption})}
+
+A wrapper function which writes a buffer to a file. 
+
+Definition at line 838 of file util.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{838                                                                                                    \{}
+\DoxyCodeLine{839   \textcolor{keywordflow}{return} writen(fileDescriptor, buffer, bufferLength);}
+\DoxyCodeLine{840 \}}
+
+\end{DoxyCode}

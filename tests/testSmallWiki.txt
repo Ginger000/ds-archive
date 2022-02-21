@@ -1,0 +1,9 @@
+9
+zero,1,three
+one,1,zero
+two,1,one
+three,1,two
+four,2,two,six
+five,1,four
+six,2,five,seven
+eight,1,seven

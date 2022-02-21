@@ -1,0 +1,221 @@
+\hypertarget{classTraversal_1_1Iterator}{}\doxysection{Traversal\+::Iterator Class Reference}
+\label{classTraversal_1_1Iterator}\index{Traversal::Iterator@{Traversal::Iterator}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTraversal_1_1Iterator_a81801b464c2e9d4590dd8890f8c4af22}{Iterator}} ()
+\item 
+\mbox{\hyperlink{classTraversal_1_1Iterator_a1cd9ea1204f82f28f7bd06e68c566bef}{Iterator}} (\mbox{\hyperlink{classTraversal}{Traversal}} $\ast$traversal)
+\item 
+\mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} \& \mbox{\hyperlink{classTraversal_1_1Iterator_a8fa1cda641dbadfea65d4ca908d3fd3b}{operator++}} ()
+\item 
+string \& \mbox{\hyperlink{classTraversal_1_1Iterator_a329a43c345acbfe0b7a2640a1e2b4ba5}{operator$\ast$}} ()
+\item 
+bool \mbox{\hyperlink{classTraversal_1_1Iterator_a8d33b148059d28fad410ce851684f9a5}{operator!=}} (const \mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} \&other)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTraversal_1_1Iterator_a1643e45808d995d7f8465bf2df085cb7}\label{classTraversal_1_1Iterator_a1643e45808d995d7f8465bf2df085cb7}} 
+\mbox{\hyperlink{classTraversal}{Traversal}} $\ast$ {\bfseries traversal}
+\item 
+\mbox{\Hypertarget{classTraversal_1_1Iterator_a1eed089b5a1144da19161fb4cb5d664b}\label{classTraversal_1_1Iterator_a1eed089b5a1144da19161fb4cb5d664b}} 
+string {\bfseries current}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 20 of file Traversal.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTraversal_1_1Iterator_a81801b464c2e9d4590dd8890f8c4af22}\label{classTraversal_1_1Iterator_a81801b464c2e9d4590dd8890f8c4af22}} 
+\index{Traversal::Iterator@{Traversal::Iterator}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!Traversal::Iterator@{Traversal::Iterator}}
+\doxysubsubsection{\texorpdfstring{Iterator()}{Iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Traversal\+::\+Iterator\+::\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default iterator constructor. 
+
+Definition at line 47 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                             : traversal(NULL) \{}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTraversal_1_1Iterator_a1cd9ea1204f82f28f7bd06e68c566bef}\label{classTraversal_1_1Iterator_a1cd9ea1204f82f28f7bd06e68c566bef}} 
+\index{Traversal::Iterator@{Traversal::Iterator}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!Traversal::Iterator@{Traversal::Iterator}}
+\doxysubsubsection{\texorpdfstring{Iterator()}{Iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Traversal\+::\+Iterator\+::\+Iterator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTraversal}{Traversal}} $\ast$}]{traversal }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} constructor for graph traversal
+
+
+\begin{DoxyParams}{Parameters}
+{\em traversal} & The traversal function type to use to traverse through the graph \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56                                                 : traversal(traversal) \{}
+\DoxyCodeLine{57   current = traversal-\/>\mbox{\hyperlink{classTraversal_a5508e0a9c6c6738c0d114ba217f0e31f}{peek}}();}
+\DoxyCodeLine{58 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTraversal_1_1Iterator_a8d33b148059d28fad410ce851684f9a5}\label{classTraversal_1_1Iterator_a8d33b148059d28fad410ce851684f9a5}} 
+\index{Traversal::Iterator@{Traversal::Iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Traversal::Iterator@{Traversal::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Traversal\+::\+Iterator\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} inequality operator.
+
+Determines if two iterators are not equal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Comparison object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 146 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146                                                         \{}
+\DoxyCodeLine{147   \textcolor{keywordtype}{bool} thisEmpty = \textcolor{keyword}{false};}
+\DoxyCodeLine{148   \textcolor{keywordtype}{bool} otherEmpty = \textcolor{keyword}{false};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150   \textcolor{keywordflow}{if} (traversal == NULL) \{ thisEmpty = \textcolor{keyword}{true}; \}}
+\DoxyCodeLine{151   \textcolor{keywordflow}{if} (other.traversal == NULL) \{ otherEmpty = \textcolor{keyword}{true}; \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153   \textcolor{keywordflow}{if} (!thisEmpty) \{ thisEmpty = traversal-\/>\mbox{\hyperlink{classTraversal_a2f7909e0371b61a9858061107cf19e56}{empty}}(); \}}
+\DoxyCodeLine{154   \textcolor{keywordflow}{if} (!otherEmpty) \{ otherEmpty = other.traversal-\/>empty(); \}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156   \textcolor{keywordflow}{if} (thisEmpty \&\& otherEmpty) \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \textcolor{comment}{// both empty then the traversals are equal, return true}}
+\DoxyCodeLine{157   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((!thisEmpty) \&\& (!otherEmpty))}
+\DoxyCodeLine{158     \textcolor{keywordflow}{return} (traversal != other.traversal); \textcolor{comment}{//both not empty then compare the traversals}}
+\DoxyCodeLine{159   \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \textcolor{comment}{// one is empty while the other is not, return true}}
+\DoxyCodeLine{160 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTraversal_1_1Iterator_a329a43c345acbfe0b7a2640a1e2b4ba5}\label{classTraversal_1_1Iterator_a329a43c345acbfe0b7a2640a1e2b4ba5}} 
+\index{Traversal::Iterator@{Traversal::Iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Traversal::Iterator@{Traversal::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily string \& Traversal\+::\+Iterator\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} accessor opreator.
+
+Accesses the current wikipedia node in the \mbox{\hyperlink{classTraversal}{Traversal}}. 
+
+Definition at line 135 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{135                                      \{}
+\DoxyCodeLine{136   \textcolor{keywordflow}{return} current;}
+\DoxyCodeLine{137 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTraversal_1_1Iterator_a8fa1cda641dbadfea65d4ca908d3fd3b}\label{classTraversal_1_1Iterator_a8fa1cda641dbadfea65d4ca908d3fd3b}} 
+\index{Traversal::Iterator@{Traversal::Iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Traversal::Iterator@{Traversal::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal\+::\+Iterator}} \& Traversal\+::\+Iterator\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classTraversal_1_1Iterator}{Iterator}} increment operator.
+
+Advances the traversal of the graph. 
+
+Definition at line 65 of file Traversal.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65                                                  \{}
+\DoxyCodeLine{66   \textcolor{comment}{// If check if there is nothing left to traverse}}
+\DoxyCodeLine{67   \textcolor{keywordflow}{if} (traversal-\/>\mbox{\hyperlink{classTraversal_a2f7909e0371b61a9858061107cf19e56}{empty}}()) \{}
+\DoxyCodeLine{68     \textcolor{comment}{// If there are still some untraversed nodes from another component}}
+\DoxyCodeLine{69     \textcolor{keywordflow}{if} (traversal-\/>\mbox{\hyperlink{classTraversal_aab0ee38258e164ee664aa29346de70b3}{hasRemaining}}()) \{}
+\DoxyCodeLine{70       \textcolor{comment}{// Get the first untraversed node}}
+\DoxyCodeLine{71       current = traversal-\/>\mbox{\hyperlink{classTraversal_a031fde90b6cca9e73e39e02e4aa5ecb6}{getFirstRemaining}}();}
+\DoxyCodeLine{72       \textcolor{comment}{// Add it to the traversal}}
+\DoxyCodeLine{73       traversal-\/>push(current);}
+\DoxyCodeLine{74     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{75       \textcolor{comment}{// If there is absolutely nothing left to traverse you have finished and just return the current}}
+\DoxyCodeLine{76       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78   \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80   \textcolor{keywordtype}{string} c = current;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82   \textcolor{comment}{// Remove the current node as we}}
+\DoxyCodeLine{83   traversal-\/>\mbox{\hyperlink{classTraversal_a2ddd63e21f541e964ca30cec2b42df4e}{removeRemaining}}(c);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{comment}{// Add the children of the current node to be traversed next}}
+\DoxyCodeLine{86   traversal-\/>\mbox{\hyperlink{classTraversal_a23e9856151b003fbe2b6b90f416d840d}{add}}(current);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88   \textcolor{keywordtype}{bool} hasVisited;}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90   \textcolor{comment}{// Set the current node to be visited}}
+\DoxyCodeLine{91   traversal-\/>\mbox{\hyperlink{classTraversal_a70a4dba83d749f55a033206f35c03073}{visit}}(current);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{94     \textcolor{comment}{// Check if there are still nodes to traverse}}
+\DoxyCodeLine{95     \textcolor{keywordflow}{if} (traversal-\/>\mbox{\hyperlink{classTraversal_a2f7909e0371b61a9858061107cf19e56}{empty}}()) \{}
+\DoxyCodeLine{96       \textcolor{comment}{// If there are still some untraversed nodes from another component}}
+\DoxyCodeLine{97       \textcolor{keywordflow}{if} (traversal-\/>\mbox{\hyperlink{classTraversal_aab0ee38258e164ee664aa29346de70b3}{hasRemaining}}()) \{}
+\DoxyCodeLine{98         \textcolor{comment}{// Get the first untraversed node}}
+\DoxyCodeLine{99         c = traversal-\/>\mbox{\hyperlink{classTraversal_a031fde90b6cca9e73e39e02e4aa5ecb6}{getFirstRemaining}}();}
+\DoxyCodeLine{100         \textcolor{comment}{// Add it to the traversal}}
+\DoxyCodeLine{101         traversal-\/>push(c);}
+\DoxyCodeLine{102       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{103         \textcolor{comment}{// If there is absolutely nothing left to traverse you have finished and just return the current}}
+\DoxyCodeLine{104         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{105       \}}
+\DoxyCodeLine{106     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{107       \textcolor{comment}{// Get the current top node}}
+\DoxyCodeLine{108       c = traversal-\/>\mbox{\hyperlink{classTraversal_a5508e0a9c6c6738c0d114ba217f0e31f}{peek}}();}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     traversal-\/>\mbox{\hyperlink{classTraversal_a2ddd63e21f541e964ca30cec2b42df4e}{removeRemaining}}(c);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{comment}{// Check if node has been visited}}
+\DoxyCodeLine{114     hasVisited = traversal-\/>\mbox{\hyperlink{classTraversal_a792d841525fb629da799f7ddf84c0d91}{hasVisted}}(c);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} (hasVisited) \{}
+\DoxyCodeLine{117       \textcolor{comment}{// If it has been visted then remove it}}
+\DoxyCodeLine{118       traversal-\/>\mbox{\hyperlink{classTraversal_ac884ea5fcd4b31d6e35c65687d0989c2}{pop}}();}
+\DoxyCodeLine{119     \}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{comment}{// Continue to search for an unvisited node}}
+\DoxyCodeLine{122   \} \textcolor{keywordflow}{while} (hasVisited);}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124   \textcolor{comment}{// Set the new current node}}
+\DoxyCodeLine{125   current = traversal-\/>\mbox{\hyperlink{classTraversal_a5508e0a9c6c6738c0d114ba217f0e31f}{peek}}();}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127   \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{128 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+wiki\+\_\+graph/Traversal.\+h\item 
+wiki\+\_\+graph/Traversal.\+cpp\end{DoxyCompactItemize}

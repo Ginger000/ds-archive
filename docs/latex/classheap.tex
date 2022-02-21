@@ -1,0 +1,552 @@
+\hypertarget{classheap}{}\doxysection{heap$<$ T, Compare $>$ Class Template Reference}
+\label{classheap}\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+
+
+{\ttfamily \#include $<$heap.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classheap_a0822d7b83aecdf3f401a88421a5135d1}{heap}} ()
+\item 
+\mbox{\hyperlink{classheap_a2d8a4a8586302a2da0cdabf985f61b3f}{heap}} (const std\+::vector$<$ T $>$ \&elems)
+\item 
+T \mbox{\hyperlink{classheap_ac0d11997a43149b4724c3fcd0316cce7}{pop}} ()
+\item 
+T \mbox{\hyperlink{classheap_ab7e626cdfd73e7221385d0f8d5019977}{peek}} () const
+\item 
+void \mbox{\hyperlink{classheap_a358c62dfc18e280c0cf74fc4ed3b9033}{push}} (const T \&elem)
+\item 
+void \mbox{\hyperlink{classheap_a14f16dd4cd69ab6369f8ad14e1b15746}{update\+Elem}} (const size\+\_\+t \&idx, const T \&elem)
+\item 
+bool \mbox{\hyperlink{classheap_ad4bc12c455adc1174d9ea1f07e6efed4}{empty}} () const
+\item 
+\mbox{\Hypertarget{classheap_abe0c89f3849bda155572369a3f911eac}\label{classheap_abe0c89f3849bda155572369a3f911eac}} 
+void {\bfseries get\+Elems} (std\+::vector$<$ T $>$ \&heaped) const
+\item 
+size\+\_\+t \mbox{\hyperlink{classheap_a54d741241595c12455c6b510c09a372a}{root}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{classheap_af681ebc4c8fa997591f771863ffef21a}{left\+Child}} (size\+\_\+t current\+Idx) const
+\item 
+size\+\_\+t \mbox{\hyperlink{classheap_a59ae7eddb268401f3f999ee2bf0d6b2d}{right\+Child}} (size\+\_\+t current\+Idx) const
+\item 
+size\+\_\+t \mbox{\hyperlink{classheap_ae8fc198974578e8f09913b76253ca32f}{parent}} (size\+\_\+t current\+Idx) const
+\item 
+bool \mbox{\hyperlink{classheap_a592441f487410a0201f0cfb3c3d66b17}{has\+AChild}} (size\+\_\+t current\+Idx) const
+\item 
+size\+\_\+t \mbox{\hyperlink{classheap_aba267193882afc6aa643a14543bd135c}{max\+Priority\+Child}} (size\+\_\+t current\+Idx) const
+\item 
+void \mbox{\hyperlink{classheap_a9e2a7cbc38c5ca839828cb43b6c51a8e}{heapify\+Down}} (size\+\_\+t current\+Idx)
+\item 
+void \mbox{\hyperlink{classheap_a39896eca3e962f228d2419cf08c497f8}{heapify\+Up}} (size\+\_\+t current\+Idx)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\+\_\+elems}}
+\item 
+Compare \mbox{\hyperlink{classheap_a0244d11d9d986abecd18d9c3c51efd40}{higher\+Priority}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classheap_a070fe5fa5f4982cadb51c24a970e19ff}\label{classheap_a070fe5fa5f4982cadb51c24a970e19ff}} 
+class {\bfseries Heap\+Node\+Descriptor$<$ T, Compare $>$}
+\item 
+{\footnotesize template$<$class Type , class Comp $>$ }\\std\+::ostream \& \mbox{\hyperlink{classheap_a1d409a2fbd2607cf2ced59a8d3d70570}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{classheap}{heap}}$<$ Type, Comp $>$ \&to\+Print)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T, class Compare = std\+::less$<$\+T$>$$>$\newline
+class heap$<$ T, Compare $>$}
+heap\+: A priority queue implemented as a heap.
+
+\begin{DoxyAuthor}{Author}
+Chase Geigle 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Fall 2012 
+\end{DoxyDate}
+
+
+Definition at line 21 of file heap.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classheap_a0822d7b83aecdf3f401a88421a5135d1}\label{classheap_a0822d7b83aecdf3f401a88421a5135d1}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!heap@{heap}}
+\index{heap@{heap}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{heap()}{heap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+\mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::\mbox{\hyperlink{classheap}{heap}}}
+
+Constructs an empty heap. 
+
+Definition at line 64 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                        \{}
+\DoxyCodeLine{65 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_a2d8a4a8586302a2da0cdabf985f61b3f}\label{classheap_a2d8a4a8586302a2da0cdabf985f61b3f}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!heap@{heap}}
+\index{heap@{heap}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{heap()}{heap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+\mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::\mbox{\hyperlink{classheap}{heap}} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{elems }\end{DoxyParamCaption})}
+
+Constructs a heap from a vector of elements by copying the elements into the heap\textquotesingle{}s storage and then running the build\+Heap algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em elems} & The elements that should be placed in the heap. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 68 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68                                                 \{}
+\DoxyCodeLine{69   \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}} = elems;}
+\DoxyCodeLine{70   \textcolor{keywordtype}{size\_t} i = (\mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.size() / 2) -\/ 1;}
+\DoxyCodeLine{71   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = i; j >= 0; j-\/-\/)}
+\DoxyCodeLine{72     \mbox{\hyperlink{classheap_a9e2a7cbc38c5ca839828cb43b6c51a8e}{heapifyDown}}(j);}
+\DoxyCodeLine{73 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classheap_ad4bc12c455adc1174d9ea1f07e6efed4}\label{classheap_ad4bc12c455adc1174d9ea1f07e6efed4}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!empty@{empty}}
+\index{empty@{empty}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+bool \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::empty}
+
+Determines if the given heap is empty.
+
+\begin{DoxyReturn}{Returns}
+Whether or not there are elements in the heap. 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113                                    \{}
+\DoxyCodeLine{114   \textcolor{keywordflow}{return} \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.empty();}
+\DoxyCodeLine{115 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_a592441f487410a0201f0cfb3c3d66b17}\label{classheap_a592441f487410a0201f0cfb3c3d66b17}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!hasAChild@{hasAChild}}
+\index{hasAChild@{hasAChild}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{hasAChild()}{hasAChild()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+bool \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::has\+AChild (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{current\+Idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Helper function that determines whether a given node has a child.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Idx} & The index of the current node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean indicating whether the current node has a child or not. 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                                         \{}
+\DoxyCodeLine{29   \textcolor{keywordflow}{return} currentIdx * 2 + 1 < \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.size();}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_a9e2a7cbc38c5ca839828cb43b6c51a8e}\label{classheap_a9e2a7cbc38c5ca839828cb43b6c51a8e}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!heapifyDown@{heapifyDown}}
+\index{heapifyDown@{heapifyDown}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{heapifyDown()}{heapifyDown()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+void \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::heapify\+Down (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{current\+Idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Helper function that restores the heap property by sinking a node down the tree as necessary.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Idx} & The index of the current node that is being sunk down the tree. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                                                     \{}
+\DoxyCodeLine{45   \textcolor{keywordtype}{size\_t} smallest = \mbox{\hyperlink{classheap_aba267193882afc6aa643a14543bd135c}{maxPriorityChild}}(currentIdx);}
+\DoxyCodeLine{46   \textcolor{keywordflow}{if} (smallest != currentIdx) \{}
+\DoxyCodeLine{47     std::swap(\mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[currentIdx], \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[smallest]);}
+\DoxyCodeLine{48     \mbox{\hyperlink{classheap_a9e2a7cbc38c5ca839828cb43b6c51a8e}{heapifyDown}}(smallest);}
+\DoxyCodeLine{49   \}}
+\DoxyCodeLine{50 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_a39896eca3e962f228d2419cf08c497f8}\label{classheap_a39896eca3e962f228d2419cf08c497f8}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!heapifyUp@{heapifyUp}}
+\index{heapifyUp@{heapifyUp}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{heapifyUp()}{heapifyUp()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+void \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::heapify\+Up (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{current\+Idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Helper function that restores the heap property by bubbling a node up the tree as necessary.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Idx} & The index of the current node that is being bubbled up the tree. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53                                                   \{}
+\DoxyCodeLine{54   \textcolor{keywordflow}{if} (currentIdx == \mbox{\hyperlink{classheap_a54d741241595c12455c6b510c09a372a}{root}}())}
+\DoxyCodeLine{55     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{56   \textcolor{keywordtype}{size\_t} parentIdx = \mbox{\hyperlink{classheap_ae8fc198974578e8f09913b76253ca32f}{parent}}(currentIdx);}
+\DoxyCodeLine{57   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classheap_a0244d11d9d986abecd18d9c3c51efd40}{higherPriority}}(\mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[currentIdx], \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[parentIdx])) \{}
+\DoxyCodeLine{58     std::swap(\mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[currentIdx], \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[parentIdx]);}
+\DoxyCodeLine{59     \mbox{\hyperlink{classheap_a39896eca3e962f228d2419cf08c497f8}{heapifyUp}}(parentIdx);}
+\DoxyCodeLine{60   \}}
+\DoxyCodeLine{61 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_af681ebc4c8fa997591f771863ffef21a}\label{classheap_af681ebc4c8fa997591f771863ffef21a}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!leftChild@{leftChild}}
+\index{leftChild@{leftChild}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{leftChild()}{leftChild()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+size\+\_\+t \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::left\+Child (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{current\+Idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Helper function that returns the index of the left child of a node in the heap. Required for grading purposes! (And it should be useful to you as well).
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Idx} & The index of the current node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the left child of the current node. 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13                                                           \{}
+\DoxyCodeLine{14   \textcolor{keywordflow}{return} currentIdx * 2 + 1;}
+\DoxyCodeLine{15 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_aba267193882afc6aa643a14543bd135c}\label{classheap_aba267193882afc6aa643a14543bd135c}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!maxPriorityChild@{maxPriorityChild}}
+\index{maxPriorityChild@{maxPriorityChild}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{maxPriorityChild()}{maxPriorityChild()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+size\+\_\+t \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::max\+Priority\+Child (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{current\+Idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Helper function that returns the index of the child with the highest priority as defined by the \mbox{\hyperlink{classheap_a0244d11d9d986abecd18d9c3c51efd40}{higher\+Priority()}} functor.
+
+For example, if T == int and the left child of the current node has data 5 and the right child of the current node has data 9, this function should return the index of the left child (because the default \mbox{\hyperlink{classheap_a0244d11d9d986abecd18d9c3c51efd40}{higher\+Priority()}} behaves like operator$<$).
+
+This function assumes that the current node has children.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Idx} & The index of the current node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the highest priority child of this node. 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                                                  \{}
+\DoxyCodeLine{34   \textcolor{keywordtype}{size\_t} min = currentIdx;}
+\DoxyCodeLine{35   \textcolor{keywordtype}{size\_t} l = \mbox{\hyperlink{classheap_af681ebc4c8fa997591f771863ffef21a}{leftChild}}(min), r = \mbox{\hyperlink{classheap_a59ae7eddb268401f3f999ee2bf0d6b2d}{rightChild}}(min);}
+\DoxyCodeLine{36   \textcolor{keywordflow}{if} (l < \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.size() \&\& \mbox{\hyperlink{classheap_a0244d11d9d986abecd18d9c3c51efd40}{higherPriority}}(\mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[l], \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[min]))}
+\DoxyCodeLine{37     min = l;}
+\DoxyCodeLine{38   \textcolor{keywordflow}{if} (r < \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.size() \&\& \mbox{\hyperlink{classheap_a0244d11d9d986abecd18d9c3c51efd40}{higherPriority}}(\mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[r], \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[min]))}
+\DoxyCodeLine{39     min = r;}
+\DoxyCodeLine{40   \textcolor{keywordflow}{return} min;}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_ae8fc198974578e8f09913b76253ca32f}\label{classheap_ae8fc198974578e8f09913b76253ca32f}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!parent@{parent}}
+\index{parent@{parent}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{parent()}{parent()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+size\+\_\+t \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::parent (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{current\+Idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Helper function that returns the index of the parent of a node in the heap.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Idx} & The index of the current node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the parent of the current node. 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                                                        \{}
+\DoxyCodeLine{24   \textcolor{keywordflow}{return} (currentIdx -\/ 1) / 2;}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_ab7e626cdfd73e7221385d0f8d5019977}\label{classheap_ab7e626cdfd73e7221385d0f8d5019977}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!peek@{peek}}
+\index{peek@{peek}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+T \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::peek}
+
+Returns, but does not remove, the element with highest priority.
+
+\begin{DoxyReturn}{Returns}
+The highest priority element in the entire heap. 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94                                \{}
+\DoxyCodeLine{95   \textcolor{keywordflow}{return} \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[\mbox{\hyperlink{classheap_a54d741241595c12455c6b510c09a372a}{root}}()];}
+\DoxyCodeLine{96 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_ac0d11997a43149b4724c3fcd0316cce7}\label{classheap_ac0d11997a43149b4724c3fcd0316cce7}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!pop@{pop}}
+\index{pop@{pop}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+T \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::pop}
+
+Removes the element with highest priority according to the \mbox{\hyperlink{classheap_a0244d11d9d986abecd18d9c3c51efd40}{higher\+Priority()}} functor.
+
+\begin{DoxyReturn}{Returns}
+The element with highest priority in the heap. 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76                         \{}
+\DoxyCodeLine{77   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.empty()) \{}
+\DoxyCodeLine{78     \textcolor{keywordflow}{throw} 1;}
+\DoxyCodeLine{79   \}}
+\DoxyCodeLine{80   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.size() == 1) \{}
+\DoxyCodeLine{81     T out = \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[\mbox{\hyperlink{classheap_a54d741241595c12455c6b510c09a372a}{root}}()];}
+\DoxyCodeLine{82     \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.clear();}
+\DoxyCodeLine{83     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{84   \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86   T out = \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[\mbox{\hyperlink{classheap_a54d741241595c12455c6b510c09a372a}{root}}()];}
+\DoxyCodeLine{87   \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[\mbox{\hyperlink{classheap_a54d741241595c12455c6b510c09a372a}{root}}()] = \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.back();}
+\DoxyCodeLine{88   \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.pop\_back();}
+\DoxyCodeLine{89   \mbox{\hyperlink{classheap_a9e2a7cbc38c5ca839828cb43b6c51a8e}{heapifyDown}}(\mbox{\hyperlink{classheap_a54d741241595c12455c6b510c09a372a}{root}}());}
+\DoxyCodeLine{90   \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{91 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_a358c62dfc18e280c0cf74fc4ed3b9033}\label{classheap_a358c62dfc18e280c0cf74fc4ed3b9033}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!push@{push}}
+\index{push@{push}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+void \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::push (\begin{DoxyParamCaption}\item[{const T \&}]{elem }\end{DoxyParamCaption})}
+
+Inserts the given element into the heap, restoring the heap property after the insert as appropriate.
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & The element to be inserted. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 99 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99                                          \{}
+\DoxyCodeLine{100   \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.push\_back(elem);}
+\DoxyCodeLine{101   \mbox{\hyperlink{classheap_a39896eca3e962f228d2419cf08c497f8}{heapifyUp}}(\mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}.size() -\/ 1);}
+\DoxyCodeLine{102 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_a59ae7eddb268401f3f999ee2bf0d6b2d}\label{classheap_a59ae7eddb268401f3f999ee2bf0d6b2d}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!rightChild@{rightChild}}
+\index{rightChild@{rightChild}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{rightChild()}{rightChild()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+size\+\_\+t \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::right\+Child (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{current\+Idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Helper function that returns the index of the right child of a node in the heap. Required for grading purposes! (And it should be useful to you as well).
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Idx} & The index of the current node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the right child of the current node. 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18                                                            \{}
+\DoxyCodeLine{19   \textcolor{keywordflow}{return} currentIdx * 2 + 2;}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_a54d741241595c12455c6b510c09a372a}\label{classheap_a54d741241595c12455c6b510c09a372a}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!root@{root}}
+\index{root@{root}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{root()}{root()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+size\+\_\+t \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::root}
+
+Helper function that returns the root index of this heap. Required for grading purposes! (This function should be ridiculously easy\+: either return 0 if you plan to store the root at index 0, or 1 if you plan on storing it at index 1).
+
+\begin{DoxyReturn}{Returns}
+The index of the root node of the heap. 
+\end{DoxyReturn}
+
+
+Definition at line 8 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8                                     \{}
+\DoxyCodeLine{9   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{10 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classheap_a14f16dd4cd69ab6369f8ad14e1b15746}\label{classheap_a14f16dd4cd69ab6369f8ad14e1b15746}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!updateElem@{updateElem}}
+\index{updateElem@{updateElem}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{updateElem()}{updateElem()}}
+{\footnotesize\ttfamily template$<$class T , class Compare $>$ \\
+void \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::update\+Elem (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{idx,  }\item[{const T \&}]{elem }\end{DoxyParamCaption})}
+
+Updates the element at the provided index of the heap array. The update is done in such a way that the array will be corrected, so it will remain as a valid heap.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The index of the element to be updated (This is \mbox{\hyperlink{classheap_a54d741241595c12455c6b510c09a372a}{root()}}-\/indexed, so will work if using either zero or one-\/indexed heaps) \\
+\hline
+{\em elem} & The element to be updated with. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file heap.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105                                                                   \{}
+\DoxyCodeLine{106   \textcolor{keywordtype}{size\_t} i = idx + \mbox{\hyperlink{classheap_a54d741241595c12455c6b510c09a372a}{root}}();}
+\DoxyCodeLine{107   \mbox{\hyperlink{classheap_a2298bf2bcf612699642f31b3149f4de2}{\_elems}}[i] = elem;}
+\DoxyCodeLine{108   \mbox{\hyperlink{classheap_a9e2a7cbc38c5ca839828cb43b6c51a8e}{heapifyDown}}(i);}
+\DoxyCodeLine{109   \mbox{\hyperlink{classheap_a39896eca3e962f228d2419cf08c497f8}{heapifyUp}}(i);}
+\DoxyCodeLine{110 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classheap_a1d409a2fbd2607cf2ced59a8d3d70570}\label{classheap_a1d409a2fbd2607cf2ced59a8d3d70570}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$class T , class Compare  = std\+::less$<$\+T$>$$>$ \\
+template$<$class Type , class Comp $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{classheap}{heap}}$<$ Type, Comp $>$ \&}]{to\+Print }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Prints the heap to an std\+::ostream. Given for you. Uses the helper functions below to do its work, so please implement them!
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & The stream to be written to. \\
+\hline
+{\em to\+Print} & The heap to be printed. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classheap_a2298bf2bcf612699642f31b3149f4de2}\label{classheap_a2298bf2bcf612699642f31b3149f4de2}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!\_elems@{\_elems}}
+\index{\_elems@{\_elems}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{\_elems}{\_elems}}
+{\footnotesize\ttfamily template$<$class T , class Compare  = std\+::less$<$\+T$>$$>$ \\
+std\+::vector$<$T$>$ \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::\+\_\+elems\hspace{0.3cm}{\ttfamily [private]}}
+
+The internal storage for this heap. {\bfseries{You may choose whether your heap is 0-\/based or 1-\/based (i.\+e., you are free to store the root at either index 0 or index 1).}} You should {\bfseries{pick one}}, and write the helper functions according to that choice. 
+
+Definition at line 113 of file heap.\+h.
+
+\mbox{\Hypertarget{classheap_a0244d11d9d986abecd18d9c3c51efd40}\label{classheap_a0244d11d9d986abecd18d9c3c51efd40}} 
+\index{heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}!higherPriority@{higherPriority}}
+\index{higherPriority@{higherPriority}!heap$<$ T, Compare $>$@{heap$<$ T, Compare $>$}}
+\doxysubsubsection{\texorpdfstring{higherPriority}{higherPriority}}
+{\footnotesize\ttfamily template$<$class T , class Compare  = std\+::less$<$\+T$>$$>$ \\
+Compare \mbox{\hyperlink{classheap}{heap}}$<$ T, Compare $>$\+::higher\+Priority\hspace{0.3cm}{\ttfamily [private]}}
+
+Comparison functor. This functor takes two parameters and returns true if the first parameter has a higher priority than the second.
+
+Compare is a template parameter and defaults to std\+::less, which creates a min-\/heap. So, if {\ttfamily T = int} and {\ttfamily a = 3} and {\ttfamily b = 5}, {\ttfamily higher\+Priority(a, b) = true} ({\ttfamily a $<$ b}, so {\ttfamily a} has higher priority) and {\ttfamily higher\+Priority(b, a) = false} ({\ttfamily b $>$ a}, so {\ttfamily b} has lower priority) 
+
+Definition at line 124 of file heap.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+wiki\+\_\+graph/heap/\mbox{\hyperlink{heap_8h}{heap.\+h}}\item 
+wiki\+\_\+graph/heap/\mbox{\hyperlink{heap_8cpp}{heap.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,75 @@
+\hypertarget{classTextReader}{}\doxysection{Text\+Reader Class Reference}
+\label{classTextReader}\index{TextReader@{TextReader}}
+
+
+{\ttfamily \#include $<$Text\+Reader.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTextReader_ad71224d66e323440ee3aeb5255c99bac}\label{classTextReader_ad71224d66e323440ee3aeb5255c99bac}} 
+{\bfseries Text\+Reader} (const std\+::string file\+Name)
+\item 
+\mbox{\Hypertarget{classTextReader_a991568c0d6cb6027f98a266d010c921c}\label{classTextReader_a991568c0d6cb6027f98a266d010c921c}} 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ {\bfseries create\+Wiki\+Map} ()
+\item 
+bool \mbox{\hyperlink{classTextReader_a53821fb72771a90cf4f4a9b0ffb1954a}{is\+Exist}} (std\+::string wiki\+Entry\+Key, std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::string $>$$>$ umap)
+\item 
+\mbox{\Hypertarget{classTextReader_aed6989fb7341643f0619f7616fdc1510}\label{classTextReader_aed6989fb7341643f0619f7616fdc1510}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries get\+All\+Entry\+Keys} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::string $>$$>$ umap)
+\item 
+\mbox{\Hypertarget{classTextReader_a79cae67ec739b2e2f329f7c37a3e9b39}\label{classTextReader_a79cae67ec739b2e2f329f7c37a3e9b39}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries get\+All\+Words} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::string $>$$>$ umap)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTextReader_af107ffca8e9c9c583ca6c00e5dcecaa9}\label{classTextReader_af107ffca8e9c9c583ca6c00e5dcecaa9}} 
+const std\+::string {\bfseries file\+Name}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the helper class to parse the database.\+txt file, and create an unordered map. More functions would be added to this class to help access keys and values in the hashmap. 
+
+Definition at line 12 of file Text\+Reader.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTextReader_a53821fb72771a90cf4f4a9b0ffb1954a}\label{classTextReader_a53821fb72771a90cf4f4a9b0ffb1954a}} 
+\index{TextReader@{TextReader}!isExist@{isExist}}
+\index{isExist@{isExist}!TextReader@{TextReader}}
+\doxysubsubsection{\texorpdfstring{isExist()}{isExist()}}
+{\footnotesize\ttfamily bool Text\+Reader\+::is\+Exist (\begin{DoxyParamCaption}\item[{std\+::string}]{wiki\+Entry\+Key,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::string $>$$>$}]{umap }\end{DoxyParamCaption})}
+
+bool to check if this word is an wiki\+Entry Key.
+
+
+\begin{DoxyParams}{Parameters}
+{\em wiki\+Entry\+Key} & the word that might be the key in hashmap \\
+\hline
+{\em umap} & The unordered hashmap created by functin create\+Wiki\+Map(). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file Text\+Reader.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                                                                                       \{}
+\DoxyCodeLine{34     \textcolor{keywordflow}{if}(umap.find(wikiEntryKey) == umap.end()) \{}
+\DoxyCodeLine{35         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{36     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+wiki\+\_\+graph/Text\+Reader.\+h\item 
+wiki\+\_\+graph/Text\+Reader.\+cpp\end{DoxyCompactItemize}

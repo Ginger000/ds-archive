@@ -1,0 +1,260 @@
+\hypertarget{classBFS}{}\doxysection{BFS Class Reference}
+\label{classBFS}\index{BFS@{BFS}}
+
+
+{\ttfamily \#include $<$BFS.\+h$>$}
+
+Inheritance diagram for BFS\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBFS}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBFS_aac393f56573a0313f836ea46f13d1e76}{BFS}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph, string start)
+\item 
+\mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal\+::\+Iterator}} \mbox{\hyperlink{classBFS_aa23cf6244cc2ce8876cc91364edb1b63}{begin}} ()
+\item 
+\mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal\+::\+Iterator}} \mbox{\hyperlink{classBFS_aa11dc1c62b53adc123afcba6084b3d43}{end}} ()
+\item 
+void \mbox{\hyperlink{classBFS_a41f2ae48bb063841308a5e5d9e4f2f34}{add}} (const string point)
+\item 
+string \mbox{\hyperlink{classBFS_a905978bfad82a3d48ed9e6d4d6c490e4}{pop}} ()
+\item 
+string \mbox{\hyperlink{classBFS_a96c9a746140026f979eeea5416800cef}{peek}} ()
+\item 
+bool \mbox{\hyperlink{classBFS_ac0e2ba56eb3cf5cfc6b9c23c03317302}{empty}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBFS_aab7b8a7d6564e8368c905de169bde67f}{push}} (string)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBFS_a6cea4ee46d8563c9b2da5794ca847278}\label{classBFS_a6cea4ee46d8563c9b2da5794ca847278}} 
+std\+::queue$<$ string $>$ {\bfseries queue}
+\item 
+\mbox{\Hypertarget{classBFS_a0e75b3e734b811546b5a84ef0a163055}\label{classBFS_a0e75b3e734b811546b5a84ef0a163055}} 
+const string {\bfseries start}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A breadth-\/first wikipedia \mbox{\hyperlink{classGraph}{Graph}}. Derived from base class \mbox{\hyperlink{classTraversal}{Traversal}} 
+
+Definition at line 13 of file BFS.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBFS_aac393f56573a0313f836ea46f13d1e76}\label{classBFS_aac393f56573a0313f836ea46f13d1e76}} 
+\index{BFS@{BFS}!BFS@{BFS}}
+\index{BFS@{BFS}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{BFS()}{BFS()}}
+{\footnotesize\ttfamily BFS\+::\+BFS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{graph,  }\item[{string}]{start }\end{DoxyParamCaption})}
+
+Initializes a breadth-\/first of the wikipedia graph start at {\ttfamily start} 
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph this \mbox{\hyperlink{classBFS}{BFS}} is going to traverse \\
+\hline
+{\em start} & The start point of this \mbox{\hyperlink{classBFS}{BFS}} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file BFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8                                    : \mbox{\hyperlink{classTraversal_ab35ed5482ece0765c7150ef1e6b5ba06}{Traversal}}(graph, start) \{}
+\DoxyCodeLine{9   \textcolor{comment}{// Passes intial values to the BFS}}
+\DoxyCodeLine{10   queue.push(start);}
+\DoxyCodeLine{11 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBFS_a41f2ae48bb063841308a5e5d9e4f2f34}\label{classBFS_a41f2ae48bb063841308a5e5d9e4f2f34}} 
+\index{BFS@{BFS}!add@{add}}
+\index{add@{add}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void BFS\+::add (\begin{DoxyParamCaption}\item[{const string}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Adds a string vertex for the traversal to visit at some point in the future. 
+\begin{DoxyParams}{Parameters}
+{\em point} & the graph vertex point to get the children from and add. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classTraversal_a23e9856151b003fbe2b6b90f416d840d}{Traversal}}.
+
+
+
+Definition at line 33 of file BFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                 \{}
+\DoxyCodeLine{34   \textcolor{comment}{// Gets the current children vertices from the directed graph}}
+\DoxyCodeLine{35   std::vector<std::string> temp = \mbox{\hyperlink{classTraversal_adfea7b74a799f169994e2b8ef0913d7b}{getChildren}}(point);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   \textcolor{comment}{// Adds all the children the next queue}}
+\DoxyCodeLine{38   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i: temp)}
+\DoxyCodeLine{39     queue.push(i);}
+\DoxyCodeLine{40 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBFS_aa23cf6244cc2ce8876cc91364edb1b63}\label{classBFS_aa23cf6244cc2ce8876cc91364edb1b63}} 
+\index{BFS@{BFS}!begin@{begin}}
+\index{begin@{begin}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal\+::\+Iterator}} BFS\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns an iterator for the traversal starting at the first point. 
+
+Implements \mbox{\hyperlink{classTraversal_a3c277987c24fd0cf9711e317b5790775}{Traversal}}.
+
+
+
+Definition at line 16 of file BFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                              \{}
+\DoxyCodeLine{17   \textcolor{comment}{// Returns an iterator that represents the start}}
+\DoxyCodeLine{18   \textcolor{keywordflow}{return} \mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal::Iterator}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBFS_ac0e2ba56eb3cf5cfc6b9c23c03317302}\label{classBFS_ac0e2ba56eb3cf5cfc6b9c23c03317302}} 
+\index{BFS@{BFS}!empty@{empty}}
+\index{empty@{empty}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool BFS\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns true if the traversal is empty. 
+
+Implements \mbox{\hyperlink{classTraversal_a2f7909e0371b61a9858061107cf19e56}{Traversal}}.
+
+
+
+Definition at line 65 of file BFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65                 \{}
+\DoxyCodeLine{66   \textcolor{comment}{// If there are no more vertices in the queue return true}}
+\DoxyCodeLine{67   \textcolor{keywordflow}{return} queue.empty();}
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBFS_aa11dc1c62b53adc123afcba6084b3d43}\label{classBFS_aa11dc1c62b53adc123afcba6084b3d43}} 
+\index{BFS@{BFS}!end@{end}}
+\index{end@{end}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal\+::\+Iterator}} BFS\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns an iterator for the traversal one past the end of the traversal. 
+
+Implements \mbox{\hyperlink{classTraversal_a7d6407bd9c09331e63b287ed7eeb40ec}{Traversal}}.
+
+
+
+Definition at line 24 of file BFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                            \{}
+\DoxyCodeLine{25   \textcolor{comment}{// Returns an iterator that represents the end}}
+\DoxyCodeLine{26   \textcolor{keywordflow}{return} \mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal::Iterator}}();}
+\DoxyCodeLine{27 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBFS_a96c9a746140026f979eeea5416800cef}\label{classBFS_a96c9a746140026f979eeea5416800cef}} 
+\index{BFS@{BFS}!peek@{peek}}
+\index{peek@{peek}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily string BFS\+::peek (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the current graph vertex in the traversal. 
+
+Implements \mbox{\hyperlink{classTraversal_a5508e0a9c6c6738c0d114ba217f0e31f}{Traversal}}.
+
+
+
+Definition at line 57 of file BFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57                  \{}
+\DoxyCodeLine{58   \textcolor{comment}{// Return nothing if empty otherwise print the front}}
+\DoxyCodeLine{59   \textcolor{keywordflow}{return} \mbox{\hyperlink{classBFS_ac0e2ba56eb3cf5cfc6b9c23c03317302}{empty}}() ? \textcolor{stringliteral}{"{}"{}} : queue.front();}
+\DoxyCodeLine{60 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBFS_a905978bfad82a3d48ed9e6d4d6c490e4}\label{classBFS_a905978bfad82a3d48ed9e6d4d6c490e4}} 
+\index{BFS@{BFS}!pop@{pop}}
+\index{pop@{pop}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily string BFS\+::pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes and returns the current Point in the traversal. 
+
+Implements \mbox{\hyperlink{classTraversal_ac884ea5fcd4b31d6e35c65687d0989c2}{Traversal}}.
+
+
+
+Definition at line 45 of file BFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45                 \{}
+\DoxyCodeLine{46   \textcolor{comment}{// Get the top of the queue}}
+\DoxyCodeLine{47   \textcolor{keywordtype}{string} top = queue.front();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49   queue.pop();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{keywordflow}{return} top;}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBFS_aab7b8a7d6564e8368c905de169bde67f}\label{classBFS_aab7b8a7d6564e8368c905de169bde67f}} 
+\index{BFS@{BFS}!push@{push}}
+\index{push@{push}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily void BFS\+::push (\begin{DoxyParamCaption}\item[{string}]{push }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Add a single element to the current queue (this is useful for when you have run out of vertices in the current component but there are still componenets left unexplored)
+
+
+\begin{DoxyParams}{Parameters}
+{\em push} & The element to add to the current queue \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classTraversal}{Traversal}}.
+
+
+
+Definition at line 76 of file BFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76                           \{}
+\DoxyCodeLine{77   queue.push(\mbox{\hyperlink{classBFS_aab7b8a7d6564e8368c905de169bde67f}{push}});}
+\DoxyCodeLine{78 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+wiki\+\_\+graph/BFS.\+h\item 
+wiki\+\_\+graph/BFS.\+cpp\end{DoxyCompactItemize}

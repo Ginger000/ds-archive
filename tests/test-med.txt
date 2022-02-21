@@ -1,0 +1,7 @@
+9
+alpha,4,beta,gamma,lambda,tau
+beta,1,alpha
+gamma,3,beta,phi,psi
+lambda,2,alpha,psi
+psi,1,chi
+tau,1,chi

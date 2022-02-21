@@ -1,0 +1,260 @@
+\hypertarget{classDFS}{}\doxysection{DFS Class Reference}
+\label{classDFS}\index{DFS@{DFS}}
+
+
+{\ttfamily \#include $<$DFS.\+h$>$}
+
+Inheritance diagram for DFS\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDFS}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDFS_a92d14f5f8b14b42d37963f1cdaf4fa87}{DFS}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph, string start)
+\item 
+\mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal\+::\+Iterator}} \mbox{\hyperlink{classDFS_a6174caa48eaf0b8e8f21bf81f18b815c}{begin}} ()
+\item 
+\mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal\+::\+Iterator}} \mbox{\hyperlink{classDFS_a9c8984634898b9ce76f20a7125398ee2}{end}} ()
+\item 
+void \mbox{\hyperlink{classDFS_acee07d6e6113198d225f27acd671b7f7}{add}} (const string point)
+\item 
+string \mbox{\hyperlink{classDFS_a1c7df3735962407daeafc9e0a237d871}{pop}} ()
+\item 
+string \mbox{\hyperlink{classDFS_a7475b36e8a6ac731aecda8dc8dda9b01}{peek}} ()
+\item 
+bool \mbox{\hyperlink{classDFS_a041d7065d32b94d73ebb8f6d945a2d94}{empty}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDFS_a916cff2ca896512cc7e3f2e0547eb268}{push}} (string)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDFS_a26d6e50ead67cda78c74f7ad8a07a435}\label{classDFS_a26d6e50ead67cda78c74f7ad8a07a435}} 
+std\+::stack$<$ string $>$ {\bfseries stack}
+\item 
+\mbox{\Hypertarget{classDFS_a4ffd64398e631e75cb7785f9eb7fb7cf}\label{classDFS_a4ffd64398e631e75cb7785f9eb7fb7cf}} 
+const string {\bfseries start}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Depth-\/first wikipedia \mbox{\hyperlink{classGraph}{Graph}}. Derived from base class \mbox{\hyperlink{classTraversal}{Traversal}} 
+
+Definition at line 13 of file DFS.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDFS_a92d14f5f8b14b42d37963f1cdaf4fa87}\label{classDFS_a92d14f5f8b14b42d37963f1cdaf4fa87}} 
+\index{DFS@{DFS}!DFS@{DFS}}
+\index{DFS@{DFS}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{DFS()}{DFS()}}
+{\footnotesize\ttfamily DFS\+::\+DFS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{graph,  }\item[{string}]{start }\end{DoxyParamCaption})}
+
+Initializes a depth-\/first of the wikipedia graph start at {\ttfamily start} 
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph this \mbox{\hyperlink{classDFS}{DFS}} is going to traverse \\
+\hline
+{\em start} & The starting point of this \mbox{\hyperlink{classDFS}{DFS}} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file DFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8                                    : \mbox{\hyperlink{classTraversal_ab35ed5482ece0765c7150ef1e6b5ba06}{Traversal}}(graph, start) \{}
+\DoxyCodeLine{9   \textcolor{comment}{// Passes intial values to the BFS}}
+\DoxyCodeLine{10   stack.push(start);}
+\DoxyCodeLine{11 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDFS_acee07d6e6113198d225f27acd671b7f7}\label{classDFS_acee07d6e6113198d225f27acd671b7f7}} 
+\index{DFS@{DFS}!add@{add}}
+\index{add@{add}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void DFS\+::add (\begin{DoxyParamCaption}\item[{const string}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Adds a string vertex for the traversal to visit at some point in the future. 
+\begin{DoxyParams}{Parameters}
+{\em point} & the graph vertex to get the children from and add. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classTraversal_a23e9856151b003fbe2b6b90f416d840d}{Traversal}}.
+
+
+
+Definition at line 33 of file DFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                 \{}
+\DoxyCodeLine{34   \textcolor{comment}{// Gets the current children vertices from the directed graph}}
+\DoxyCodeLine{35   std::vector<std::string> temp = \mbox{\hyperlink{classTraversal_adfea7b74a799f169994e2b8ef0913d7b}{getChildren}}(point);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   \textcolor{comment}{// Adds all the children the next stack}}
+\DoxyCodeLine{38   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i: temp)}
+\DoxyCodeLine{39     stack.push(i);}
+\DoxyCodeLine{40 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDFS_a6174caa48eaf0b8e8f21bf81f18b815c}\label{classDFS_a6174caa48eaf0b8e8f21bf81f18b815c}} 
+\index{DFS@{DFS}!begin@{begin}}
+\index{begin@{begin}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal\+::\+Iterator}} DFS\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns an iterator for the traversal starting at the first vertex. 
+
+Implements \mbox{\hyperlink{classTraversal_a3c277987c24fd0cf9711e317b5790775}{Traversal}}.
+
+
+
+Definition at line 16 of file DFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                              \{}
+\DoxyCodeLine{17   \textcolor{comment}{// Returns an iterator that represents the start}}
+\DoxyCodeLine{18   \textcolor{keywordflow}{return} \mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal::Iterator}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDFS_a041d7065d32b94d73ebb8f6d945a2d94}\label{classDFS_a041d7065d32b94d73ebb8f6d945a2d94}} 
+\index{DFS@{DFS}!empty@{empty}}
+\index{empty@{empty}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool DFS\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns true if the traversal is empty. 
+
+Implements \mbox{\hyperlink{classTraversal_a2f7909e0371b61a9858061107cf19e56}{Traversal}}.
+
+
+
+Definition at line 65 of file DFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65                 \{}
+\DoxyCodeLine{66   \textcolor{comment}{// If there are no more vertices in the queue return true}}
+\DoxyCodeLine{67   \textcolor{keywordflow}{return} stack.empty();}
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDFS_a9c8984634898b9ce76f20a7125398ee2}\label{classDFS_a9c8984634898b9ce76f20a7125398ee2}} 
+\index{DFS@{DFS}!end@{end}}
+\index{end@{end}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal\+::\+Iterator}} DFS\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns an iterator for the traversal one past the end of the traversal. 
+
+Implements \mbox{\hyperlink{classTraversal_a7d6407bd9c09331e63b287ed7eeb40ec}{Traversal}}.
+
+
+
+Definition at line 24 of file DFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                            \{}
+\DoxyCodeLine{25   \textcolor{comment}{// Returns an iterator that represents the end}}
+\DoxyCodeLine{26   \textcolor{keywordflow}{return} \mbox{\hyperlink{classTraversal_1_1Iterator}{Traversal::Iterator}}();}
+\DoxyCodeLine{27 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDFS_a7475b36e8a6ac731aecda8dc8dda9b01}\label{classDFS_a7475b36e8a6ac731aecda8dc8dda9b01}} 
+\index{DFS@{DFS}!peek@{peek}}
+\index{peek@{peek}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily string DFS\+::peek (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the current graph vertex in the traversal. 
+
+Implements \mbox{\hyperlink{classTraversal_a5508e0a9c6c6738c0d114ba217f0e31f}{Traversal}}.
+
+
+
+Definition at line 57 of file DFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57                  \{}
+\DoxyCodeLine{58   \textcolor{comment}{// Return nothing if empty otherwise print the front}}
+\DoxyCodeLine{59   \textcolor{keywordflow}{return} \mbox{\hyperlink{classDFS_a041d7065d32b94d73ebb8f6d945a2d94}{empty}}() ? \textcolor{stringliteral}{"{}"{}} : stack.top();}
+\DoxyCodeLine{60 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDFS_a1c7df3735962407daeafc9e0a237d871}\label{classDFS_a1c7df3735962407daeafc9e0a237d871}} 
+\index{DFS@{DFS}!pop@{pop}}
+\index{pop@{pop}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily string DFS\+::pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes and returns the current vertex in the traversal. 
+
+Implements \mbox{\hyperlink{classTraversal_ac884ea5fcd4b31d6e35c65687d0989c2}{Traversal}}.
+
+
+
+Definition at line 45 of file DFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45                 \{}
+\DoxyCodeLine{46   \textcolor{comment}{// Get the top of the queue}}
+\DoxyCodeLine{47   \textcolor{keywordtype}{string} top = stack.top();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49   stack.pop();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{keywordflow}{return} top;}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDFS_a916cff2ca896512cc7e3f2e0547eb268}\label{classDFS_a916cff2ca896512cc7e3f2e0547eb268}} 
+\index{DFS@{DFS}!push@{push}}
+\index{push@{push}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily void DFS\+::push (\begin{DoxyParamCaption}\item[{string}]{push }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Add a single element to the current stack (this is useful for when you have run out of vertices in the current component but there are still componenets left unexplored)
+
+
+\begin{DoxyParams}{Parameters}
+{\em push} & The element to add to the current queue \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classTraversal}{Traversal}}.
+
+
+
+Definition at line 76 of file DFS.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76                           \{}
+\DoxyCodeLine{77   stack.push(\mbox{\hyperlink{classDFS_a916cff2ca896512cc7e3f2e0547eb268}{push}});}
+\DoxyCodeLine{78 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+wiki\+\_\+graph/DFS.\+h\item 
+wiki\+\_\+graph/DFS.\+cpp\end{DoxyCompactItemize}

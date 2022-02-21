@@ -1,0 +1,9 @@
+*.o
+wiki
+test
+.objs/
+BFS
+DFS
+Dijkstra
+StronglyConnected
+PageRank

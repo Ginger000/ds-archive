@@ -1,0 +1,51 @@
+\hypertarget{classutil_1_1OptionsParser}{}\doxysection{util\+::Options\+Parser Class Reference}
+\label{classutil_1_1OptionsParser}\index{util::OptionsParser@{util::OptionsParser}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classutil_1_1OptionsParser_ac5156600b52f4a08beeef198a97b7d52}\label{classutil_1_1OptionsParser_ac5156600b52f4a08beeef198a97b7d52}} 
+void {\bfseries add\+Option} (const string \&name, bool \&set\+Value)
+\item 
+\mbox{\Hypertarget{classutil_1_1OptionsParser_a7f87cce01710379baa7eaac3a15be45f}\label{classutil_1_1OptionsParser_a7f87cce01710379baa7eaac3a15be45f}} 
+void {\bfseries add\+Arg} (string \&set\+Value)
+\item 
+\mbox{\Hypertarget{classutil_1_1OptionsParser_ac4149e11e31c871a857cf07abc8850f3}\label{classutil_1_1OptionsParser_ac4149e11e31c871a857cf07abc8850f3}} 
+vector$<$ string $>$ {\bfseries parse} (int argc, const char $\ast$const $\ast$argv)
+\item 
+\mbox{\Hypertarget{classutil_1_1OptionsParser_a815be1d4863e83dd35bd7c493e4001f9}\label{classutil_1_1OptionsParser_a815be1d4863e83dd35bd7c493e4001f9}} 
+vector$<$ string $>$ {\bfseries parse} (const vector$<$ string $>$ \&raw\+Args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classutil_1_1OptionsParser_a57a8cccfd2a1a803c26f2e60838c79a4}\label{classutil_1_1OptionsParser_a57a8cccfd2a1a803c26f2e60838c79a4}} 
+typedef map$<$ string, bool $\ast$ $>$ {\bfseries opts\+Map\+\_\+t}
+\item 
+\mbox{\Hypertarget{classutil_1_1OptionsParser_ae582f2ab9a9f34de9384aa0dc4bfd0cd}\label{classutil_1_1OptionsParser_ae582f2ab9a9f34de9384aa0dc4bfd0cd}} 
+typedef map$<$ string, bool $>$ {\bfseries value\+Map\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classutil_1_1OptionsParser_adaa6ba93b056e7995db677420ed61785}\label{classutil_1_1OptionsParser_adaa6ba93b056e7995db677420ed61785}} 
+value\+Map\+\_\+t {\bfseries value\+Map}
+\item 
+\mbox{\Hypertarget{classutil_1_1OptionsParser_a8e8bbe1047ff573df6cf496c189719c6}\label{classutil_1_1OptionsParser_a8e8bbe1047ff573df6cf496c189719c6}} 
+opts\+Map\+\_\+t {\bfseries opts\+Map}
+\item 
+\mbox{\Hypertarget{classutil_1_1OptionsParser_aa31c2984412e734fa4e6eb90451b4709}\label{classutil_1_1OptionsParser_aa31c2984412e734fa4e6eb90451b4709}} 
+vector$<$ string $\ast$ $>$ {\bfseries args}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 84 of file util.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+util/util.\+h\item 
+util/\mbox{\hyperlink{util_8cpp}{util.\+cpp}}\end{DoxyCompactItemize}

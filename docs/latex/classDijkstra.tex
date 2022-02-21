@@ -1,0 +1,258 @@
+\hypertarget{classDijkstra}{}\doxysection{Dijkstra Class Reference}
+\label{classDijkstra}\index{Dijkstra@{Dijkstra}}
+
+
+{\ttfamily \#include $<$Dijkstra.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDijkstra_a7d448ea92a488b9d1b842d6a675873ae}\label{classDijkstra_a7d448ea92a488b9d1b842d6a675873ae}} 
+typedef std\+::pair$<$ string, int $>$ {\bfseries kvp}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDijkstra_a9e6c0e700802a54a6af593a72b152571}{Dijkstra}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph)
+\item 
+\mbox{\hyperlink{classDijkstra_a43c5acc6ec1f77567b051efbf0293431}{Dijkstra}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph, double($\ast$weight)(string, string))
+\item 
+void \mbox{\hyperlink{classDijkstra_acae73ff790d7928e81717d788ca41da2}{get\+Path}} (vector$<$ string $>$ \&path, string start, string end)
+\item 
+void \mbox{\hyperlink{classDijkstra_ad7add3b96242b7f317de62d4790457de}{set\+Weight}} (double($\ast$weight)(string, string))
+\item 
+void \mbox{\hyperlink{classDijkstra_aec6d567dfaa0d0cf56c7b1c87e219e16}{clear\+Weight}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDijkstra_ac0249618a64799a36bf52ca43c08e16f}\label{classDijkstra_ac0249618a64799a36bf52ca43c08e16f}} 
+\mbox{\hyperlink{classGraph}{Graph}} $\ast$ {\bfseries graph}
+\item 
+\mbox{\Hypertarget{classDijkstra_aa4e2b431b6b7f10fc186d3f799c55b9f}\label{classDijkstra_aa4e2b431b6b7f10fc186d3f799c55b9f}} 
+double($\ast$ {\bfseries weight} )(string, string)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An implementation of \mbox{\hyperlink{classDijkstra}{Dijkstra}}\textquotesingle{}s, modified to find the shortest path between two points. Utilizes min priority queue (Implemented as heap) to achieve O(\+E log(\+V)) complexity. Note that better runtime (O(E+\+VlogV)) is attainable via ues of a fibonacci heap. 
+
+Definition at line 29 of file Dijkstra.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDijkstra_a9e6c0e700802a54a6af593a72b152571}\label{classDijkstra_a9e6c0e700802a54a6af593a72b152571}} 
+\index{Dijkstra@{Dijkstra}!Dijkstra@{Dijkstra}}
+\index{Dijkstra@{Dijkstra}!Dijkstra@{Dijkstra}}
+\doxysubsubsection{\texorpdfstring{Dijkstra()}{Dijkstra()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Dijkstra\+::\+Dijkstra (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{graph }\end{DoxyParamCaption})}
+
+Initializes iterable traversal of the shortest path between a start and end vertex. Uses \mbox{\hyperlink{classDijkstra}{Dijkstra}}\textquotesingle{}s algorithm to find shortest path.
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The graph to traverse \\
+\hline
+{\em start} & The source vertex for Dijsktra\textquotesingle{}s algorithm \\
+\hline
+{\em end} & The target vertex \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file Dijkstra.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10                                : graph(graph), weight(\textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{11   \textcolor{comment}{/* Nothing here */}}
+\DoxyCodeLine{12 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDijkstra_a43c5acc6ec1f77567b051efbf0293431}\label{classDijkstra_a43c5acc6ec1f77567b051efbf0293431}} 
+\index{Dijkstra@{Dijkstra}!Dijkstra@{Dijkstra}}
+\index{Dijkstra@{Dijkstra}!Dijkstra@{Dijkstra}}
+\doxysubsubsection{\texorpdfstring{Dijkstra()}{Dijkstra()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Dijkstra\+::\+Dijkstra (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{graph,  }\item[{double($\ast$)(string, string)}]{weight }\end{DoxyParamCaption})}
+
+Constructor that takes pointer to custom weight function
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The graph to traverse \\
+\hline
+{\em start} & The source vertex for Dijsktra\textquotesingle{}s algorithm \\
+\hline
+{\em end} & The target vertex \\
+\hline
+{\em weight} & Function pointer for weighting function based on article key \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 22 of file Dijkstra.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                                                                  : graph(graph), weight(*weight) \{}
+\DoxyCodeLine{23   \textcolor{comment}{/* Nothing here */}}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDijkstra_aec6d567dfaa0d0cf56c7b1c87e219e16}\label{classDijkstra_aec6d567dfaa0d0cf56c7b1c87e219e16}} 
+\index{Dijkstra@{Dijkstra}!clearWeight@{clearWeight}}
+\index{clearWeight@{clearWeight}!Dijkstra@{Dijkstra}}
+\doxysubsubsection{\texorpdfstring{clearWeight()}{clearWeight()}}
+{\footnotesize\ttfamily void Dijkstra\+::clear\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reset weight function for Dijsktra object to default 
+
+Definition at line 127 of file Dijkstra.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127                            \{}
+\DoxyCodeLine{128   this-\/>weight = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{129 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDijkstra_acae73ff790d7928e81717d788ca41da2}\label{classDijkstra_acae73ff790d7928e81717d788ca41da2}} 
+\index{Dijkstra@{Dijkstra}!getPath@{getPath}}
+\index{getPath@{getPath}!Dijkstra@{Dijkstra}}
+\doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily void Dijkstra\+::get\+Path (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ \&}]{path,  }\item[{string}]{start,  }\item[{string}]{end }\end{DoxyParamCaption})}
+
+Returns list of vertices comprising the shortest path between two vertices, in order of traversal
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The graph to traverse \\
+\hline
+{\em start} & The source vertex for Dijsktra\textquotesingle{}s algorithm \\
+\hline
+{\em end} & The target vertex \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file Dijkstra.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                                                      \{}
+\DoxyCodeLine{34   \textcolor{keyword}{const} \textcolor{keywordtype}{int} n = graph-\/>\mbox{\hyperlink{classGraph_a7d016a176241e35cfe0d15d3d9f05eae}{size}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   \textcolor{comment}{// Create vector to help with min priority queue constructor}}
+\DoxyCodeLine{37   std::vector<kvp> init;}
+\DoxyCodeLine{38   init.reserve(n);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \textcolor{comment}{// Create map of distances between start and vertices that can be accessed in O(1)}}
+\DoxyCodeLine{41   std::unordered\_map<string, double> dist;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43   \textcolor{comment}{// Create map storing vertices and their direct predecessor according to Dijkstra's}}
+\DoxyCodeLine{44   \textcolor{comment}{//Used to recover shortest path as a sequence of vertices.}}
+\DoxyCodeLine{45   std::unordered\_map<string, string> parent;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47   \textcolor{comment}{// Initialize distance, parent map values}}
+\DoxyCodeLine{48   \textcolor{keyword}{const} \textcolor{keyword}{auto} \&all = graph-\/>\mbox{\hyperlink{classGraph_a62dc15aaab3d1a5e4268f6218d1cbbad}{getVertices}}();}
+\DoxyCodeLine{49   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{string} v : all) \{}
+\DoxyCodeLine{50     parent[v] = \textcolor{stringliteral}{"{}"{}}; \textcolor{comment}{// Predecessor not known}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} (v == start)}
+\DoxyCodeLine{53       dist[v] = 0; \textcolor{comment}{// Mindist(X,X) = 0 for all vertices X}}
+\DoxyCodeLine{54     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{55       dist[v] = INT\_MAX; \textcolor{comment}{// Unknown distance}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     init.push\_back(kvp(v, dist[v])); \textcolor{comment}{// Indirectly adding to priority queue}}
+\DoxyCodeLine{58   \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60   \textcolor{comment}{// Pair comparison functor use by minheap}}
+\DoxyCodeLine{61   \textcolor{comment}{// By default pairs compare lexicographically with both first and second values}}
+\DoxyCodeLine{62   \textcolor{keyword}{struct }comp \{}
+\DoxyCodeLine{63     \textcolor{keywordtype}{bool} operator()(\textcolor{keyword}{const} kvp \&lhs, \textcolor{keyword}{const} kvp \&rhs)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{64       \textcolor{keywordflow}{return} lhs.second < rhs.second;}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66   \};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68   \textcolor{comment}{// Finally, create min priority queue using helper vector}}
+\DoxyCodeLine{69   \mbox{\hyperlink{classheap}{heap<kvp, comp>}} minheap(init);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71   \textcolor{comment}{// Main loop}}
+\DoxyCodeLine{72   \textcolor{keywordflow}{while} (!minheap.empty()) \{}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{comment}{// Return and remove best vertex (based on distance)}}
+\DoxyCodeLine{75     kvp min = minheap.pop();}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{comment}{// Exit loop upon reaching target vertex}}
+\DoxyCodeLine{78     \textcolor{keywordflow}{if} (min.first == end) \{}
+\DoxyCodeLine{79       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{comment}{// Visit all adjacent vertices}}
+\DoxyCodeLine{83     std::vector<string> adj = graph-\/>\mbox{\hyperlink{classGraph_ac8507d9150c2eca50728a892150f1717}{getChildren}}(min.first);}
+\DoxyCodeLine{84     \textcolor{keywordtype}{double} weight = 1.0 / ((double) adj.size() +}
+\DoxyCodeLine{85         1.0); \textcolor{comment}{// Use number of children for weight, to prioritize less link-\/heavy articles}}
+\DoxyCodeLine{86     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{string} vtx : adj) \{}
+\DoxyCodeLine{87       \textcolor{keywordflow}{if} (this-\/>weight != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{88         weight = this-\/>weight(min.first, vtx);}
+\DoxyCodeLine{89       \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91       \textcolor{comment}{// If comparison with current best is nontrivial and adjacent vertex is untravelled thus far}}
+\DoxyCodeLine{92       \textcolor{keywordflow}{if} (dist[min.first] != INT\_MAX \&\& \(\backslash\)}
+\DoxyCodeLine{93           weight + dist[min.first] < dist[vtx]) \{}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95         \textcolor{comment}{// Update distance map, priority queue}}
+\DoxyCodeLine{96         dist[vtx] = dist[min.first] + weight;}
+\DoxyCodeLine{97         minheap.push(kvp(vtx, dist[vtx]));}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99         \textcolor{comment}{// Update parent map}}
+\DoxyCodeLine{100         parent[vtx] = min.first;}
+\DoxyCodeLine{101       \}}
+\DoxyCodeLine{102     \}}
+\DoxyCodeLine{103   \}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105   \textcolor{comment}{// Recover vertices of shortest path}}
+\DoxyCodeLine{106   \textcolor{keywordtype}{string} tmp = end;}
+\DoxyCodeLine{107   \textcolor{keywordflow}{while} (tmp != \textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{108     path.insert(path.begin(), tmp); \textcolor{comment}{// Store shortest path in object stack, used for iterator}}
+\DoxyCodeLine{109     tmp = parent[tmp];}
+\DoxyCodeLine{110   \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112   \textcolor{comment}{// Return nothing}}
+\DoxyCodeLine{113 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDijkstra_ad7add3b96242b7f317de62d4790457de}\label{classDijkstra_ad7add3b96242b7f317de62d4790457de}} 
+\index{Dijkstra@{Dijkstra}!setWeight@{setWeight}}
+\index{setWeight@{setWeight}!Dijkstra@{Dijkstra}}
+\doxysubsubsection{\texorpdfstring{setWeight()}{setWeight()}}
+{\footnotesize\ttfamily void Dijkstra\+::set\+Weight (\begin{DoxyParamCaption}\item[{double($\ast$)(string, string)}]{weight }\end{DoxyParamCaption})}
+
+Set a new weight function for \mbox{\hyperlink{classDijkstra}{Dijkstra}} object
+
+
+\begin{DoxyParams}{Parameters}
+{\em weight} & Function pointer for weighting function based on article key \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 120 of file Dijkstra.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{120                                                          \{}
+\DoxyCodeLine{121   this-\/>weight = (*weight);}
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+wiki\+\_\+graph/Dijkstra.\+h\item 
+wiki\+\_\+graph/Dijkstra.\+cpp\end{DoxyCompactItemize}
